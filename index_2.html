@@ -1,1 +1,940 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Raio-X Estratégico · Fase 2 — Boas Bronze e Estética | YM Marketing & Negócios</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --preto: #F4F6FA;
+    --azul-escuro: #E6EBF5;
+    --azul: #0055E5;
+    --azul-claro: #1A6FE8;
+    --branco: #111827;
+    --cinza-grafite: #1F2937;
+    --cinza-claro: #E5E7EB;
+    --cinza-medio: #6B7280;
+    --cinza-borda: #D1D5DB;
+    --verde: #059669;
+    --amarelo: #B45309;
+    --vermelho: #DC2626;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { background: #F4F6FA; color: #111827; font-family: 'Inter', sans-serif; line-height: 1.6; overflow-x: hidden; }
 
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(244,246,250,0.96); backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(0,0,0,0.08); padding: 0 40px;
+    height: 64px; display: flex; align-items: center; justify-content: space-between;
+  }
+  .nav-logo { display: flex; align-items: center; gap: 10px; }
+  .nav-logo .ym-mark { width: 28px; height: 28px; }
+  .nav-logo span { font-family: 'Montserrat', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 0.08em; color: var(--branco); text-transform: uppercase; }
+  .nav-links { display: flex; gap: 32px; list-style: none; }
+  .nav-links a { color: #6B7280; text-decoration: none; font-size: 12px; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--branco); }
+  .nav-badge { background: rgba(5,150,105,0.1); border: 1px solid rgba(5,150,105,0.25); color: #065F46; padding: 5px 14px; border-radius: 20px; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
+
+  .hero { min-height: 100vh; display: flex; align-items: center; padding: 120px 80px 80px; position: relative; overflow: hidden; }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 60% 50% at 70% 40%, rgba(5,150,105,0.06) 0%, transparent 60%), radial-gradient(ellipse 40% 60% at 20% 70%, rgba(180,240,210,0.25) 0%, transparent 60%);
+  }
+  .hero-grid-lines { position: absolute; inset: 0; background-image: linear-gradient(rgba(0,0,0,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.04) 1px, transparent 1px); background-size: 60px 60px; }
+  .hero-content { position: relative; z-index: 2; max-width: 1200px; width: 100%; }
+  .hero-meta { display: flex; align-items: center; gap: 16px; margin-bottom: 48px; flex-wrap: wrap; }
+
+  .badge { display: inline-flex; align-items: center; gap: 6px; padding: 6px 16px; border-radius: 100px; font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; }
+  .badge-blue { background: rgba(0,85,229,0.08); border: 1px solid rgba(0,85,229,0.2); color: #1A4DB8; }
+  .badge-green { background: rgba(5,150,105,0.08); border: 1px solid rgba(5,150,105,0.22); color: #065F46; }
+  .badge-amber { background: rgba(180,83,9,0.08); border: 1px solid rgba(180,83,9,0.22); color: #92400E; }
+  .badge-dot { width: 6px; height: 6px; border-radius: 50%; background: currentColor; animation: pulse 2s infinite; }
+  @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+
+  .hero-label { font-size: 11px; font-weight: 600; color: var(--verde); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 20px; }
+  .hero h1 { font-family: 'Montserrat', sans-serif; font-size: clamp(48px, 6vw, 80px); font-weight: 800; line-height: 1.05; letter-spacing: -0.03em; margin-bottom: 24px; }
+  .hero h1 .highlight { background: linear-gradient(135deg, #003FBF 0%, #0055E5 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .hero h1 .fase { font-size: clamp(18px, 2.5vw, 28px); display: block; color: #059669; font-weight: 700; letter-spacing: -0.01em; margin-bottom: 8px; }
+  .hero-sub { font-size: 18px; font-weight: 400; color: #6B7280; max-width: 560px; margin-bottom: 48px; line-height: 1.7; }
+  .hero-cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 48px; }
+  .hero-card { background: rgba(255,255,255,0.75); border: 1px solid rgba(0,0,0,0.08); border-radius: 12px; padding: 20px; transition: border-color 0.3s; backdrop-filter: blur(4px); }
+  .hero-card:hover { border-color: rgba(0,85,229,0.3); }
+  .hero-card-label { font-size: 10px; font-weight: 600; color: #6B7280; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 8px; }
+  .hero-card-value { font-family: 'Montserrat', sans-serif; font-size: 16px; font-weight: 700; color: var(--branco); }
+  .hero-cta { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+
+  .btn-primary { display: inline-flex; align-items: center; gap: 10px; background: #0055E5; color: #FFFFFF; padding: 14px 28px; border-radius: 8px; font-size: 14px; font-weight: 600; text-decoration: none; transition: all 0.2s; letter-spacing: 0.02em; }
+  .btn-primary:hover { background: #003FBF; transform: translateY(-1px); box-shadow: 0 8px 24px rgba(0,102,255,0.3); }
+  .btn-ghost { display: inline-flex; align-items: center; gap: 8px; color: #6B7280; font-size: 14px; font-weight: 500; text-decoration: none; transition: color 0.2s; }
+  .btn-ghost:hover { color: #111827; }
+
+  section { padding: 100px 80px; max-width: 1400px; margin: 0 auto; }
+  .section-label { font-size: 11px; font-weight: 600; color: var(--azul-claro); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
+  .section-label::before { content: ''; display: block; width: 24px; height: 2px; background: #0055E5; border-radius: 1px; }
+  .section-title { font-family: 'Montserrat', sans-serif; font-size: clamp(28px, 3.5vw, 44px); font-weight: 800; letter-spacing: -0.025em; line-height: 1.1; margin-bottom: 16px; }
+  .section-desc { font-size: 16px; color: #6B7280; max-width: 600px; line-height: 1.7; margin-bottom: 60px; }
+  .divider { height: 1px; background: rgba(0,0,0,0.08); margin: 0 80px; }
+
+  /* Progress tracker */
+  .progress-tracker { background: #FFFFFF; border: 1px solid rgba(0,0,0,0.08); border-radius: 16px; padding: 36px; box-shadow: 0 2px 12px rgba(0,0,0,0.05); margin-bottom: 32px; }
+  .progress-tracker h3 { font-family: 'Montserrat', sans-serif; font-size: 14px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #6B7280; margin-bottom: 24px; }
+  .progress-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .progress-step { text-align: center; }
+  .step-circle { width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 10px; font-size: 18px; font-weight: 800; }
+  .step-done { background: rgba(5,150,105,0.12); border: 2px solid #059669; color: #059669; }
+  .step-partial { background: rgba(180,83,9,0.1); border: 2px solid #D97706; color: #D97706; }
+  .step-pending { background: rgba(0,0,0,0.05); border: 2px solid rgba(0,0,0,0.15); color: #9CA3AF; }
+  .step-label { font-size: 11px; font-weight: 600; color: #374151; margin-bottom: 4px; }
+  .step-status { font-size: 10px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
+  .status-done { color: #059669; }
+  .status-partial { color: #D97706; }
+  .status-pending { color: #9CA3AF; }
+
+  /* Overview */
+  .overview-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .overview-card { background: #FFFFFF; border: 1px solid rgba(0,0,0,0.08); border-radius: 16px; padding: 36px; box-shadow: 0 2px 12px rgba(0,0,0,0.05); }
+  .overview-card.featured { background: linear-gradient(135deg, rgba(5,150,105,0.05) 0%, rgba(200,240,220,0.35) 100%); border-color: rgba(5,150,105,0.18); grid-column: span 2; }
+  .overview-card h3 { font-family: 'Montserrat', sans-serif; font-size: 14px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #6B7280; margin-bottom: 16px; }
+  .overview-card p { font-size: 16px; line-height: 1.75; color: #374151; }
+  .overview-card blockquote { font-family: 'Poppins', sans-serif; font-size: 20px; font-weight: 500; line-height: 1.5; color: #111827; border-left: 3px solid #059669; padding-left: 24px; }
+  .tag-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+  .tag { padding: 5px 12px; border-radius: 100px; font-size: 12px; font-weight: 500; }
+  .tag-red { background: rgba(220,38,38,0.07); border: 1px solid rgba(220,38,38,0.2); color: #991B1B; }
+  .tag-yellow { background: rgba(180,83,9,0.07); border: 1px solid rgba(180,83,9,0.2); color: #7C2D12; }
+  .tag-green { background: rgba(5,150,105,0.07); border: 1px solid rgba(5,150,105,0.2); color: #065F46; }
+
+  /* Dashboard */
+  .dashboard-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 32px; }
+  .metric-card { background: #FFFFFF; border: 1px solid rgba(0,0,0,0.08); border-radius: 14px; padding: 28px; position: relative; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+  .metric-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; }
+  .metric-card.red::before { background: var(--vermelho); }
+  .metric-card.yellow::before { background: var(--amarelo); }
+  .metric-card.green::before { background: var(--verde); }
+  .metric-card.blue::before { background: var(--azul); }
+  .metric-title { font-size: 11px; font-weight: 600; color: #6B7280; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 12px; }
+  .metric-score { font-family: 'Montserrat', sans-serif; font-size: 40px; font-weight: 800; line-height: 1; margin-bottom: 8px; }
+  .metric-score.red { color: var(--vermelho); }
+  .metric-score.yellow { color: var(--amarelo); }
+  .metric-score.green { color: var(--verde); }
+  .metric-score.blue { color: var(--azul-claro); }
+  .metric-max { font-size: 14px; font-weight: 400; color: #6B7280; }
+  .metric-desc { font-size: 13px; color: #6B7280; margin-top: 8px; line-height: 1.5; }
+  .progress-bar { margin-top: 16px; height: 4px; background: rgba(0,0,0,0.08); border-radius: 2px; overflow: hidden; }
+  .progress-fill { height: 100%; border-radius: 2px; transition: width 1s ease; }
+  .metric-delta { font-size: 11px; font-weight: 700; margin-top: 8px; display: flex; align-items: center; gap: 4px; }
+  .delta-up { color: #059669; }
+  .delta-same { color: #D97706; }
+
+  /* Semaforo */
+  .semaforo-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .semaforo-item { display: flex; align-items: flex-start; gap: 16px; background: #FFFFFF; border: 1px solid rgba(0,0,0,0.08); border-radius: 12px; padding: 20px; box-shadow: 0 1px 6px rgba(0,0,0,0.04); }
+  .semaforo-dot { width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; margin-top: 3px; }
+  .dot-red { background: #DC2626; box-shadow: 0 0 8px rgba(220,38,38,0.4); }
+  .dot-yellow { background: #D97706; box-shadow: 0 0 8px rgba(217,119,6,0.4); }
+  .dot-green { background: #059669; box-shadow: 0 0 8px rgba(5,150,105,0.4); }
+  .semaforo-text h4 { font-size: 14px; font-weight: 600; margin-bottom: 4px; }
+  .semaforo-text p { font-size: 13px; color: #6B7280; line-height: 1.5; }
+
+  /* Analise blocks */
+  .analise-block { margin-bottom: 48px; background: #FFFFFF; border: 1px solid rgba(0,0,0,0.08); border-radius: 16px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.05); }
+  .analise-header { padding: 24px 32px; border-bottom: 1px solid rgba(0,0,0,0.07); display: flex; align-items: center; gap: 16px; }
+  .analise-icon { width: 40px; height: 40px; background: rgba(0,85,229,0.08); border: 1px solid rgba(0,85,229,0.18); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 18px; }
+  .analise-icon.green { background: rgba(5,150,105,0.08); border-color: rgba(5,150,105,0.2); }
+  .analise-header h3 { font-family: 'Montserrat', sans-serif; font-size: 16px; font-weight: 700; }
+  .analise-header .status-badge { margin-left: auto; }
+  .analise-body { padding: 32px; }
+  .insight-list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+  .insight-list li { display: flex; align-items: flex-start; gap: 12px; font-size: 14px; line-height: 1.6; color: #374151; }
+  .insight-list li::before { content: '→'; color: #0055E5; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+  .insight-list.critical li::before { content: '✗'; color: #DC2626; }
+  .insight-list.positive li::before { content: '✓'; color: #059669; }
+  .insight-list.done li::before { content: '✓'; color: #059669; font-weight: 900; }
+  .insight-list.blocked li::before { content: '⚠'; color: #D97706; flex-shrink: 0; margin-top: 1px; }
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .col-label { font-size: 13px; font-weight: 600; color: #6B7280; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 12px; }
+  .insight-box { margin-top: 24px; background: rgba(0,85,229,0.04); border: 1px solid rgba(0,85,229,0.15); border-radius: 10px; padding: 20px 24px; }
+  .insight-box.green { background: rgba(5,150,105,0.04); border-color: rgba(5,150,105,0.2); }
+  .insight-box.amber { background: rgba(180,83,9,0.04); border-color: rgba(180,83,9,0.2); }
+  .insight-box-label { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #0055E5; margin-bottom: 6px; }
+  .insight-box.green .insight-box-label { color: #059669; }
+  .insight-box.amber .insight-box-label { color: #B45309; }
+  .insight-box-text { font-size: 14px; color: #374151; line-height: 1.65; }
+
+  /* Oportunidades */
+  .oport-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .oport-card { background: #FFFFFF; border: 1px solid rgba(0,0,0,0.08); border-radius: 14px; padding: 28px; transition: all 0.3s; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+  .oport-card:hover { border-color: rgba(0,85,229,0.3); transform: translateY(-2px); }
+  .oport-num { font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 700; color: #0055E5; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 16px; }
+  .oport-card h3 { font-family: 'Montserrat', sans-serif; font-size: 16px; font-weight: 700; margin-bottom: 10px; line-height: 1.3; }
+  .oport-card p { font-size: 13px; color: #4B5563; line-height: 1.65; }
+  .oport-impact { margin-top: 16px; display: flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
+
+  /* Roadmap */
+  .roadmap-timeline { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; position: relative; }
+  .roadmap-timeline::before { content: ''; position: absolute; top: 36px; left: 16.67%; right: 16.67%; height: 1px; background: linear-gradient(90deg, #0055E5 0%, rgba(0,85,229,0.15) 100%); }
+  .roadmap-phase { padding: 0 24px 0 0; }
+  .roadmap-phase:last-child { padding-right: 0; }
+  .phase-header { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; }
+  .phase-dot { width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; }
+  .phase-num { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #0055E5; }
+  .phase-period { font-size: 11px; font-weight: 500; color: #6B7280; margin-left: auto; }
+  .roadmap-phase h3 { font-family: 'Montserrat', sans-serif; font-size: 20px; font-weight: 800; margin-bottom: 20px; line-height: 1.2; }
+  .roadmap-items { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .roadmap-items li { display: flex; align-items: flex-start; gap: 10px; font-size: 13px; color: #374151; line-height: 1.5; padding: 10px 12px; background: #F9FAFB; border: 1px solid rgba(0,0,0,0.07); border-radius: 8px; }
+  .roadmap-items li .item-icon { font-size: 14px; flex-shrink: 0; }
+  .roadmap-phase.active .roadmap-items li { border-color: rgba(0,85,229,0.15); background: rgba(0,85,229,0.04); }
+  .roadmap-phase.done .roadmap-items li { border-color: rgba(5,150,105,0.2); background: rgba(5,150,105,0.04); color: #6B7280; }
+
+  /* Proximos */
+  .proximos-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 48px; }
+  .passo-card { background: #FFFFFF; border: 1px solid rgba(0,0,0,0.08); border-radius: 14px; padding: 32px; display: flex; flex-direction: column; gap: 16px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+  .passo-num { width: 40px; height: 40px; border-radius: 10px; background: rgba(0,85,229,0.08); border: 1px solid rgba(0,85,229,0.2); display: flex; align-items: center; justify-content: center; font-family: 'Montserrat', sans-serif; font-size: 16px; font-weight: 800; color: var(--azul-claro); }
+  .passo-card h3 { font-family: 'Montserrat', sans-serif; font-size: 15px; font-weight: 700; }
+  .passo-card p { font-size: 13px; color: #4B5563; line-height: 1.65; flex: 1; }
+  .passo-deadline { font-size: 11px; font-weight: 600; color: #0055E5; letter-spacing: 0.08em; text-transform: uppercase; }
+
+  /* CTA */
+  .cta-section { background: linear-gradient(135deg, rgba(0,85,229,0.06) 0%, rgba(200,215,255,0.35) 100%); border: 1px solid rgba(0,85,229,0.15); border-radius: 24px; padding: 64px; text-align: center; position: relative; overflow: hidden; }
+  .cta-section::before { content: ''; position: absolute; top: -80px; left: 50%; transform: translateX(-50%); width: 300px; height: 300px; background: radial-gradient(circle, rgba(0,85,229,0.08) 0%, transparent 70%); pointer-events: none; }
+  .cta-section h2 { font-family: 'Montserrat', sans-serif; font-size: 36px; font-weight: 800; letter-spacing: -0.025em; margin-bottom: 16px; position: relative; }
+  .cta-section p { font-size: 16px; color: #4B5563; max-width: 480px; margin: 0 auto 36px; line-height: 1.7; position: relative; }
+  .cta-buttons { display: flex; align-items: center; justify-content: center; gap: 16px; flex-wrap: wrap; position: relative; }
+  .btn-whatsapp { display: inline-flex; align-items: center; gap: 10px; background: #25D366; color: #111827; padding: 14px 28px; border-radius: 8px; font-size: 14px; font-weight: 600; text-decoration: none; transition: all 0.2s; }
+  .btn-whatsapp:hover { background: #1EBC57; transform: translateY(-1px); box-shadow: 0 8px 24px rgba(37,211,102,0.25); }
+  .next-service { margin-top: 48px; padding: 24px 32px; background: rgba(255,255,255,0.7); border: 1px solid rgba(0,0,0,0.1); border-radius: 12px; display: flex; align-items: center; gap: 20px; position: relative; }
+  .next-service-info { flex: 1; text-align: left; }
+  .next-service-label { font-size: 10px; font-weight: 600; color: #6B7280; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 6px; }
+  .next-service h4 { font-family: 'Montserrat', sans-serif; font-size: 18px; font-weight: 700; margin-bottom: 4px; }
+  .next-service p { font-size: 13px; color: #6B7280; margin: 0; }
+  .next-service-price { text-align: right; }
+  .next-service-price .price { font-family: 'Montserrat', sans-serif; font-size: 24px; font-weight: 800; color: var(--azul-claro); }
+  .next-service-price .price-label { font-size: 11px; color: #6B7280; }
+
+  footer { background: #EAEEF5; border-top: 1px solid rgba(0,0,0,0.09); padding: 60px 80px 40px; }
+  .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
+  .footer-logo { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; }
+  .footer-logo .ym-text { font-family: 'Montserrat', sans-serif; font-size: 18px; font-weight: 800; letter-spacing: -0.02em; }
+  .footer-brand p { font-size: 14px; color: #6B7280; line-height: 1.7; max-width: 280px; }
+  .footer-col h4 { font-size: 11px; font-weight: 700; color: #6B7280; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 16px; }
+  .footer-col a { display: block; font-size: 14px; color: #4B5563; text-decoration: none; margin-bottom: 8px; transition: color 0.2s; }
+  .footer-col a:hover { color: #111827; }
+  .footer-bottom { border-top: 1px solid rgba(0,0,0,0.09); padding-top: 24px; display: flex; align-items: center; justify-content: space-between; }
+  .footer-bottom p { font-size: 12px; color: #9CA3AF; }
+  .footer-sig { font-size: 12px; color: #9CA3AF; font-style: italic; }
+
+  .fade-up { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+  @media (max-width: 900px) {
+    nav { padding: 0 24px; }
+    .nav-links { display: none; }
+    section, .hero { padding: 80px 24px; }
+    .divider { margin: 0 24px; }
+    footer { padding: 40px 24px; }
+    .hero-cards { grid-template-columns: repeat(2, 1fr); }
+    .dashboard-grid { grid-template-columns: 1fr 1fr; }
+    .overview-grid { grid-template-columns: 1fr; }
+    .overview-card.featured { grid-column: span 1; }
+    .semaforo-grid { grid-template-columns: 1fr; }
+    .roadmap-timeline { grid-template-columns: 1fr; }
+    .roadmap-timeline::before { display: none; }
+    .oport-grid { grid-template-columns: 1fr; }
+    .proximos-grid { grid-template-columns: 1fr; }
+    .two-col { grid-template-columns: 1fr; }
+    .progress-steps { grid-template-columns: 1fr 1fr; }
+    .cta-section { padding: 40px 24px; }
+    .next-service { flex-direction: column; }
+    .footer-grid { grid-template-columns: 1fr; }
+    .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+  }
+  @media (max-width: 600px) {
+    .hero-cards { grid-template-columns: 1fr 1fr; }
+    .dashboard-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <div class="nav-logo">
+    <svg class="ym-mark" viewBox="0 0 100 110" fill="none">
+      <path d="M10 10 L50 60 L90 10" stroke="#3D5BFF" stroke-width="18" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      <circle cx="50" cy="90" r="12" fill="#3D5BFF"/>
+    </svg>
+    <span>YM Marketing & Negócios</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#evolucao">Evolução</a></li>
+    <li><a href="#diagnostico">Diagnóstico</a></li>
+    <li><a href="#analise">Análise</a></li>
+    <li><a href="#oportunidades">Oportunidades</a></li>
+    <li><a href="#roadmap">Roadmap</a></li>
+    <li><a href="#proximos">Próximos Passos</a></li>
+  </ul>
+  <span class="nav-badge">Fase 2 · Acompanhamento</span>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid-lines"></div>
+  <div class="hero-content">
+    <div class="hero-meta">
+      <span class="badge badge-green"><span class="badge-dot"></span>Acompanhamento Pós-Diagnóstico</span>
+      <span class="badge badge-blue">Maio 2026 · Confidencial</span>
+      <span class="badge badge-amber">Continuação do Raio-X Fase 1</span>
+    </div>
+
+    <div class="hero-label">Raio-X Estratégico — Fase 2 · Evolução & Próximo Ciclo</div>
+
+    <h1>
+      <span class="fase">↗ Em Movimento</span>
+      Keitlin Boas<br>
+      <span class="highlight">Boas Bronze e Estética</span>
+    </h1>
+
+    <p class="hero-sub">
+      O que foi implementado após o Raio-X Fase 1, o que travou na execução e qual é o próximo ciclo estratégico para destravar o crescimento.
+    </p>
+
+    <div class="hero-cards">
+      <div class="hero-card">
+        <div class="hero-card-label">Nova Conta Criada</div>
+        <div class="hero-card-value">@boascuida · Estética</div>
+      </div>
+      <div class="hero-card">
+        <div class="hero-card-label">Bio Atualizada</div>
+        <div class="hero-card-value" style="color:#059669;">✓ Feito</div>
+      </div>
+      <div class="hero-card">
+        <div class="hero-card-label">Google · Fotos</div>
+        <div class="hero-card-value" style="color:#D97706;">41 Rejeitadas</div>
+      </div>
+      <div class="hero-card">
+        <div class="hero-card-label">Avaliações Google</div>
+        <div class="hero-card-value" style="color:#059669;">↑ Em captação</div>
+      </div>
+    </div>
+
+    <div class="hero-cta">
+      <a href="#evolucao" class="btn-primary">
+        Ver Evolução Completa
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="#proximos" class="btn-ghost">Pular para Próximos Passos →</a>
+    </div>
+  </div>
+</div>
+
+<!-- EVOLUÇÃO / VISÃO GERAL -->
+<section id="evolucao">
+  <div class="section-label">01 — Evolução Pós Raio-X Fase 1</div>
+  <h2 class="section-title">O que mudou desde o diagnóstico</h2>
+  <p class="section-desc">Keitlin leu o Raio-X com atenção, tomou ação imediata em várias frentes e os prints mostram o que foi executado, o que travou e o que ainda precisa ser desbloqueado.</p>
+
+  <!-- TRACKER DE PROGRESSO -->
+  <div class="progress-tracker">
+    <h3>Rastreador de Implementação — Fase 1</h3>
+    <div class="progress-steps">
+      <div class="progress-step">
+        <div class="step-circle step-done">✓</div>
+        <div class="step-label">Bio do Instagram</div>
+        <div class="step-status status-done">Implementado</div>
+      </div>
+      <div class="progress-step">
+        <div class="step-circle step-done">✓</div>
+        <div class="step-label">Conta @boascuida</div>
+        <div class="step-status status-done">Criada</div>
+      </div>
+      <div class="progress-step">
+        <div class="step-circle step-partial">!</div>
+        <div class="step-label">Google Meu Negócio</div>
+        <div class="step-status status-partial">Travado · 41 rejeições</div>
+      </div>
+      <div class="progress-step">
+        <div class="step-circle step-done">✓</div>
+        <div class="step-label">Avaliações Google</div>
+        <div class="step-status status-done">Em captação ativa</div>
+      </div>
+      <div class="progress-step">
+        <div class="step-circle step-partial">!</div>
+        <div class="step-label">WhatsApp · Templates</div>
+        <div class="step-status status-partial">Parcial · 2 leads perdidos</div>
+      </div>
+      <div class="progress-step">
+        <div class="step-circle step-done">✓</div>
+        <div class="step-label">@boascuida · Bio</div>
+        <div class="step-status status-done">Posicionada</div>
+      </div>
+      <div class="progress-step">
+        <div class="step-circle step-pending">○</div>
+        <div class="step-label">Feed @boascuida</div>
+        <div class="step-status status-pending">Sem posts ainda</div>
+      </div>
+      <div class="progress-step">
+        <div class="step-circle step-pending">○</div>
+        <div class="step-label">Conteúdo Estética</div>
+        <div class="step-status status-pending">Sem direção visual</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="overview-grid">
+    <div class="overview-card featured">
+      <h3>Leitura Geral da Fase 2</h3>
+      <blockquote>
+        "Keitlin executou rápido — bio trocada, conta criada, avaliações sendo pedidas. A reação ao Raio-X foi exatamente a certa. Mas dois gargalos novos surgiram: o Google rejeita as fotos por questões de política de conteúdo, e a conta @boascuida está criada e posicionada mas vazia — sem posts, sem identidade visual e sem direção de conteúdo. O desbloqueio agora é técnico e criativo."
+      </blockquote>
+      <div class="tag-list">
+        <span class="tag tag-green">✓ Bio atualizada com posicionamento real</span>
+        <span class="tag tag-green">✓ @boascuida criada e com bio estruturada</span>
+        <span class="tag tag-green">✓ Avaliações Google em captação ativa</span>
+        <span class="tag tag-green">✓ Keitlin entendeu o diagnóstico e quer agir</span>
+        <span class="tag tag-yellow">⚠ Google rejeitando fotos — problema técnico identificado</span>
+        <span class="tag tag-yellow">⚠ 2 leads perdidos no WhatsApp esta semana</span>
+        <span class="tag tag-red">✗ @boascuida com 0 posts — conta criada mas inativa</span>
+        <span class="tag tag-red">✗ Sem direção visual para estética — paralisia criativa</span>
+        <span class="tag tag-red">✗ Sem calendário editorial definido para nenhuma das contas</span>
+      </div>
+    </div>
+
+    <div class="overview-card">
+      <h3>O Que Keitlin Disse</h3>
+      <p>
+        Nos prints do WhatsApp, Keitlin revela o momento atual com clareza: <em>"Adorei o Raio-X, essa análise desbloqueou minha mente, tudo que eu precisava!"</em> e <em>"Eu estava realmente sem norte e você deixou tudo bem esclarecido."</em> Ela já tomou ações concretas — pedindo avaliações, trocando a bio, criando a conta de estética. Mas trava na execução visual: <em>"A página da estética eu já criei, só estou sem norte de como criar os designs."</em>
+      </p>
+    </div>
+
+    <div class="overview-card">
+      <h3>O Problema que Surgiu</h3>
+      <p>
+        Dois gargalos novos não previstos no Raio-X original: o Google Meu Negócio está rejeitando sistematicamente todas as fotos enviadas — 41 rejeições documentadas nos prints. O motivo principal é a política de conteúdo do Google para imagens de resultados corporais. E o segundo gargalo é criativo: a conta @boascuida foi criada com posicionamento correto ("Esteticista e Cosmetóloga há 10 anos", "Estética corporal e facial", "Método Fast Shape") mas Keitlin não sabe como criar os posts e nunca publicou nada.
+      </p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- DIAGNÓSTICO FASE 2 -->
+<section id="diagnostico">
+  <div class="section-label">02 — Diagnóstico · Fase 2</div>
+  <h2 class="section-title">Painel de Saúde Digital Atualizado</h2>
+  <p class="section-desc">Scores revisados com base nas ações implementadas e nos novos gargalos identificados nos prints.</p>
+
+  <div class="dashboard-grid">
+    <div class="metric-card yellow">
+      <div class="metric-title">Posicionamento Digital</div>
+      <div class="metric-score yellow">5.0<span class="metric-max">/10</span></div>
+      <div class="metric-desc">Bio melhorada no @boasbronze. @boascuida criada e posicionada com bio correta. Mas nenhuma das duas contas tem conteúdo consistente ainda.</div>
+      <div class="progress-bar"><div class="progress-fill" style="width:50%; background:#D97706;"></div></div>
+      <div class="metric-delta delta-up">↑ +1.5 desde Fase 1 (era 3.5)</div>
+    </div>
+
+    <div class="metric-card red">
+      <div class="metric-title">Conteúdo & Feed</div>
+      <div class="metric-score red">2.5<span class="metric-max">/10</span></div>
+      <div class="metric-desc">@boascuida com 0 posts. @boasbronze sem calendário editorial. O gargalo de conteúdo permanece idêntico ao Raio-X Fase 1.</div>
+      <div class="progress-bar"><div class="progress-fill" style="width:25%; background:#DC2626;"></div></div>
+      <div class="metric-delta delta-same">→ Sem mudança (era 2.5)</div>
+    </div>
+
+    <div class="metric-card yellow">
+      <div class="metric-title">Google Meu Negócio</div>
+      <div class="metric-score yellow">5.5<span class="metric-max">/10</span></div>
+      <div class="metric-desc">Avaliações em captação ativa (+0.1 já confirmado). Mas 41 fotos rejeitadas bloqueia a melhoria do perfil visual.</div>
+      <div class="progress-bar"><div class="progress-fill" style="width:55%; background:#D97706;"></div></div>
+      <div class="metric-delta delta-up">↑ +0.5 (captação ativa de avaliações)</div>
+    </div>
+
+    <div class="metric-card red">
+      <div class="metric-title">WhatsApp · Conversão</div>
+      <div class="metric-score red">3.5<span class="metric-max">/10</span></div>
+      <div class="metric-desc">2 leads perdidos identificados esta semana por mensagens não visualizadas a tempo. Templates não foram criados ainda.</div>
+      <div class="progress-bar"><div class="progress-fill" style="width:35%; background:#DC2626;"></div></div>
+      <div class="metric-delta delta-same">→ Pouca melhora (era 3.0)</div>
+    </div>
+
+    <div class="metric-card green">
+      <div class="metric-title">Separação de Contas</div>
+      <div class="metric-score green">4.0<span class="metric-max">/10</span></div>
+      <div class="metric-desc">@boascuida criada e com bio excelente. Mas 0 posts = conta inativa. A separação foi iniciada mas não está operacional ainda.</div>
+      <div class="progress-bar"><div class="progress-fill" style="width:40%; background:#059669;"></div></div>
+      <div class="metric-delta delta-up">↑ Nova métrica — estrutura criada</div>
+    </div>
+
+    <div class="metric-card green">
+      <div class="metric-title">Engajamento & Motivação</div>
+      <div class="metric-score green">9.0<span class="metric-max">/10</span></div>
+      <div class="metric-desc">Keitlin reagiu com entusiasmo real ao diagnóstico, tomou ação imediata e está pedindo orientação para continuar. Perfil de cliente que executa.</div>
+      <div class="progress-bar"><div class="progress-fill" style="width:90%; background:#059669;"></div></div>
+      <div class="metric-delta delta-up">↑ Ativo de crescimento — alto potencial</div>
+    </div>
+  </div>
+
+  <div class="semaforo-grid">
+    <div class="semaforo-item">
+      <div class="semaforo-dot dot-red"></div>
+      <div class="semaforo-text">
+        <h4>@boascuida com 0 posts — Crítico</h4>
+        <p>A conta foi criada com bio perfeita mas está vazia. Uma conta de estética com 0 posts e 9 seguidores não existe digitalmente. O problema não é a criação da conta — é a ausência de conteúdo e direção visual que impede a ativação.</p>
+      </div>
+    </div>
+    <div class="semaforo-item">
+      <div class="semaforo-dot dot-red"></div>
+      <div class="semaforo-text">
+        <h4>Google rejeitando todas as fotos — Crítico</h4>
+        <p>41 fotos rejeitadas. O Google rejeita imagens com texto sobreposto, imagens de marketing editadas, fotos de resultados corporais explícitos e imagens de baixa qualidade. O problema é técnico e tem solução: fotos do espaço físico e de procedimentos neutros são aceitas.</p>
+      </div>
+    </div>
+    <div class="semaforo-item">
+      <div class="semaforo-dot dot-red"></div>
+      <div class="semaforo-text">
+        <h4>Leads perdidos no WhatsApp — Crítico</h4>
+        <p>2 leads não visualizados esta semana. Keitlin reconhece o problema: "Acontece muito". Sem templates de resposta rápida configurados e sem rotina de verificação do WhatsApp, a perda de leads vai continuar independente do crescimento do Instagram.</p>
+      </div>
+    </div>
+    <div class="semaforo-item">
+      <div class="semaforo-dot dot-yellow"></div>
+      <div class="semaforo-text">
+        <h4>Paralisia criativa no @boascuida — Atenção</h4>
+        <p>Keitlin sabe o que precisa fazer mas não sabe como criar os designs. Isso é uma barreira real de execução — não de motivação. Sem um sistema de templates ou referência visual, a conta vai continuar vazia por mais semanas.</p>
+      </div>
+    </div>
+    <div class="semaforo-item">
+      <div class="semaforo-dot dot-green"></div>
+      <div class="semaforo-text">
+        <h4>Bio do @boasbronze atualizada — Positivo</h4>
+        <p>Keitlin trocou a bio com posicionamento correto: "Aqui é o paraíso das tímidas desde 2019 · O bronze que é seguro e saudável · Para todes · Fale conosco". É simples, clara e comunica o diferencial real. CTA adicionado no final.</p>
+      </div>
+    </div>
+    <div class="semaforo-item">
+      <div class="semaforo-dot dot-green"></div>
+      <div class="semaforo-text">
+        <h4>Bio do @boascuida excelente — Positivo</h4>
+        <p>"Normalize CUIDAR de si · Esteticista e Cosmetóloga há 10 anos · Estética corporal e facial · Método Fast Shape." Posicionamento correto, credencial (10 anos), serviço claro e diferencial (Fast Shape). Está pronta para receber conteúdo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ANÁLISE PROFUNDA FASE 2 -->
+<section id="analise">
+  <div class="section-label">03 — Análise dos Novos Gargalos</div>
+  <h2 class="section-title">O que surgiu e precisa ser resolvido agora</h2>
+  <p class="section-desc">Dois gargalos novos bloqueiam a evolução. Um é técnico, um é criativo. Ambos têm solução objetiva.</p>
+
+  <!-- GOOGLE FOTOS -->
+  <div class="analise-block fade-up">
+    <div class="analise-header">
+      <div class="analise-icon">📍</div>
+      <div>
+        <h3>Google Meu Negócio — Problema de Fotos</h3>
+        <div style="font-size:12px;color:#6B7280;margin-top:2px;">41 fotos rejeitadas · Problema técnico com solução direta</div>
+      </div>
+      <span class="badge badge-blue status-badge">Técnico</span>
+    </div>
+    <div class="analise-body">
+      <div class="two-col">
+        <div>
+          <p class="col-label">Por que o Google Rejeita</p>
+          <ul class="insight-list blocked">
+            <li>Fotos com texto ou logos sobrepostos — o Google rejeita imagens editadas com marketing nelas</li>
+            <li>Fotos de resultados corporais explícitos (bumbum, corpo nu ou em biquíni) — política de conteúdo do GMB</li>
+            <li>Fotos da fachada da rua sem contexto claro de negócio também são rejeitadas por baixa qualidade</li>
+            <li>Imagens em baixa resolução ou muito escuras são automaticamente rejeitadas pelo sistema</li>
+            <li>O Google é mais restritivo do que o Instagram para esse tipo de conteúdo — as mesmas fotos que funcionam no Insta são rejeitadas no GMB</li>
+          </ul>
+        </div>
+        <div>
+          <p class="col-label">O Que o Google Aceita</p>
+          <ul class="insight-list positive">
+            <li>Fotos do espaço físico — a sala de atendimento arrumada, as macas, os equipamentos (limpos e organizados)</li>
+            <li>Fotos dos produtos usados — bronzeadores, cremes, instrumentos de estética sem texto sobreposto</li>
+            <li>Fotos da profissional trabalhando — Keitlin em atendimento, mãos nos procedimentos, close de técnica</li>
+            <li>Fotos de antes/depois com foco na pele (não no corpo inteiro) — tom de pele do bronze, resultado de clareamento</li>
+            <li>Fotos do espaço externo com boa iluminação natural e sem edição excessiva</li>
+          </ul>
+        </div>
+      </div>
+      <div class="insight-box amber">
+        <div class="insight-box-label">Solução Prática</div>
+        <div class="insight-box-text">A solução é simples: tirar 10 fotos do espaço físico organizado, da Keitlin trabalhando e dos produtos — sem texto sobreposto, sem filtros pesados, com boa iluminação natural. Essas fotos passam automaticamente pela revisão do Google. <strong>Não é o conteúdo que precisa mudar — é o formato da foto.</strong> Uma sessão de 30 minutos dentro do espaço resolve o problema completamente.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- @BOASCUIDA SEM CONTEÚDO -->
+  <div class="analise-block fade-up">
+    <div class="analise-header">
+      <div class="analise-icon green">💄</div>
+      <div>
+        <h3>@boascuida — Conta Criada, Paralisia Criativa</h3>
+        <div style="font-size:12px;color:#6B7280;margin-top:2px;">0 posts · 9 seguidores · Bio excelente · Sem direção visual</div>
+      </div>
+      <span class="badge badge-blue status-badge">Criativo</span>
+    </div>
+    <div class="analise-body">
+      <div class="two-col">
+        <div>
+          <p class="col-label">O Que Está Travando</p>
+          <ul class="insight-list critical">
+            <li>Sem sistema de templates — cada post começa do zero no Canva, o que é lento e gera paralisia</li>
+            <li>Sem referência visual definida — sem paleta de cores, tipografia e estilo de imagem padrão para a conta</li>
+            <li>Sem calendário editorial — sem pauta, a criação de conteúdo depende de inspiração do momento</li>
+            <li>Keitlin quer fazer sozinha mas não tem ferramenta ou estrutura para isso ainda</li>
+            <li>0 posts = conta invisível — qualquer cliente que receber o @ para pesquisar vai encontrar nada</li>
+          </ul>
+        </div>
+        <div>
+          <p class="col-label">O Que Pode Ser Publicado Agora</p>
+          <ul class="insight-list positive">
+            <li>Post de apresentação: quem é Keitlin como esteticista, os 10 anos de experiência, o que a diferencia</li>
+            <li>Post dos serviços: listar os procedimentos com foto de resultado ou de processo (massagem, ultrassom, Fast Shape)</li>
+            <li>Antes/depois selecionados do portfólio existente — ela já tem esse material, é só publicar</li>
+            <li>Depoimento em vídeo curto — ela mencionou querer gravar depoimentos de clientes da estética na semana seguinte</li>
+            <li>Post educativo: o que é o Método Fast Shape, por que a estética facial é diferente da convencional</li>
+          </ul>
+        </div>
+      </div>
+      <div class="insight-box green">
+        <div class="insight-box-label">Solução Prática</div>
+        <div class="insight-box-text">A conta @boascuida não precisa de design sofisticado para começar — precisa de <strong>3 posts publicados esta semana</strong>: apresentação de Keitlin como esteticista, um before/after já existente e um post sobre um serviço específico. Isso ativa a conta, gera os primeiros seguidores orgânicos e tira a paralisia. Perfeição depois — publicação primeiro.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WHATSAPP -->
+  <div class="analise-block fade-up">
+    <div class="analise-header">
+      <div class="analise-icon">💬</div>
+      <div>
+        <h3>WhatsApp Business — Leads Sendo Perdidos</h3>
+        <div style="font-size:12px;color:#6B7280;margin-top:2px;">2 leads não visualizados esta semana · Templates ainda não criados</div>
+      </div>
+      <span class="badge badge-blue status-badge">Urgente</span>
+    </div>
+    <div class="analise-body">
+      <div class="two-col">
+        <div>
+          <p class="col-label">Gargalos Identificados</p>
+          <ul class="insight-list critical">
+            <li>Mensagens chegam e não são vistas a tempo — 2 confirmados esta semana, provavelmente mais sem registro</li>
+            <li>Sem templates de resposta rápida configurados — cada resposta é digitada do zero, o que aumenta o tempo de atendimento</li>
+            <li>Atendimento pelo celular limita o acesso a recursos do WhatsApp Business (ela mesma identificou isso)</li>
+            <li>Sem rotina definida de verificação do WhatsApp — o WhatsApp Business deveria ter cheque fixo a cada 4h</li>
+          </ul>
+        </div>
+        <div>
+          <p class="col-label">Solução Imediata</p>
+          <ul class="insight-list positive">
+            <li>Configurar 5 respostas rápidas no WhatsApp Business para: "qual o preço do bronze", "como agendar", "quais serviços de estética", "como funciona o pacote mensal" e "horários disponíveis"</li>
+            <li>Ativar notificações do WhatsApp Business com prioridade máxima no celular</li>
+            <li>Definir janelas fixas de atendimento: checar e responder às 9h, 13h e 18h todos os dias</li>
+            <li>A mensagem automática de boas-vindas já existe e está boa — o problema é na segunda resposta, não na primeira</li>
+          </ul>
+        </div>
+      </div>
+      <div class="insight-box amber">
+        <div class="insight-box-label">Dado Importante dos Prints</div>
+        <div class="insight-box-text">Keitlin perguntou: <em>"O template de resposta rápida no WhatsApp é uma resposta pronta pra enviar? É isso?"</em> — ela ainda não sabia o que era o recurso. Isso confirma que os templates nunca foram configurados. <strong>Configurar as 5 respostas rápidas leva 10 minutos e pode evitar a perda de clientes que estão enviando mensagem agora.</strong></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTA @BOASCUIDA BIO -->
+  <div class="analise-block fade-up">
+    <div class="analise-header">
+      <div class="analise-icon green">✨</div>
+      <div>
+        <h3>@boascuida — O Que Foi Bem Feito</h3>
+        <div style="font-size:12px;color:#6B7280;margin-top:2px;">Bio estruturada · Posicionamento correto · Pronto para receber conteúdo</div>
+      </div>
+      <span class="badge badge-green status-badge">Positivo</span>
+    </div>
+    <div class="analise-body">
+      <div class="two-col">
+        <div>
+          <p class="col-label">O Que Keitlin Acertou</p>
+          <ul class="insight-list done">
+            <li>"Normalize CUIDAR de si" — gancho emocional correto que conecta com o público de estética e autoestima</li>
+            <li>"Esteticista e Cosmetóloga há 10 anos" — credencial clara que diferencia de concorrentes sem formação</li>
+            <li>"Estética corporal e facial" — serviços listados de forma direta, sem confusão com bronzeamento</li>
+            <li>"Método Fast Shape: perca..." — diferencial técnico registrado, precisa apenas do restante da frase visível</li>
+            <li>Foto de perfil com rosto — humaniza a conta, fundamental para serviços de saúde e beleza</li>
+            <li>Separação total do @boasbronze — dois públicos agora em canais distintos como recomendado</li>
+          </ul>
+        </div>
+        <div>
+          <p class="col-label">O Que Pode Ser Melhorado</p>
+          <ul class="insight-list">
+            <li>Completar a descrição do Método Fast Shape na bio — o texto está cortado e é o principal diferencial</li>
+            <li>Adicionar localização (Nova Vista, BH) para SEO local do Instagram</li>
+            <li>Adicionar CTA claro: "Agende pelo link abaixo" com link para WhatsApp</li>
+            <li>Criar destaques desde o primeiro post — não deixar a conta sem destaques enquanto cresce</li>
+          </ul>
+        </div>
+      </div>
+      <div class="insight-box green">
+        <div class="insight-box-label">Validação Estratégica</div>
+        <div class="insight-box-text">A separação das contas foi executada corretamente. O @boasbronze agora pode ser trabalhado exclusivamente como canal de bronzeamento, e o @boascuida pode construir uma audiência de estética do zero — sem o conflito de algoritmo que existia antes. <strong>A estrutura está certa. O próximo passo é conteúdo.</strong></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- OPORTUNIDADES FASE 2 -->
+<section id="oportunidades">
+  <div class="section-label">04 — Oportunidades · Fase 2</div>
+  <h2 class="section-title">O que desbloqueia o crescimento agora</h2>
+  <p class="section-desc">As oportunidades desta fase são mais específicas — os fundamentos foram criados, agora é sobre ativação e execução.</p>
+
+  <div class="oport-grid">
+    <div class="oport-card">
+      <div class="oport-num">Oportunidade 01 · Urgente</div>
+      <h3>Publicar os 3 Primeiros Posts do @boascuida Esta Semana</h3>
+      <p>A conta está posicionada mas vazia. Publicar 3 posts estratégicos — apresentação, before/after e serviço em destaque — ativa a conta, sinaliza para o algoritmo e permite começar a construir seguidores. Cada dia sem post é um dia a mais de invisibilidade para quem pesquisa estética corporal em BH.</p>
+      <div class="oport-impact" style="color:#059669;">
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 1v10M1 6l5-5 5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        Ativação Imediata · Esta Semana
+      </div>
+    </div>
+
+    <div class="oport-card">
+      <div class="oport-num">Oportunidade 02 · Urgente</div>
+      <h3>Resolver Fotos do Google com Sessão de 30 Minutos</h3>
+      <p>A solução para as 41 rejeições não é desistir do Google — é entender o que o Google aceita. Fotos do espaço organizado, dos equipamentos e de Keitlin trabalhando (sem foco em corpo) passam na revisão. Uma sessão de 30 minutos dentro do espaço gera 10 fotos aprovadas que vão direto para o perfil.</p>
+      <div class="oport-impact" style="color:#059669;">
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 1v10M1 6l5-5 5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        Solução Técnica · 30 Minutos
+      </div>
+    </div>
+
+    <div class="oport-card">
+      <div class="oport-num">Oportunidade 03 · Urgente</div>
+      <h3>Configurar 5 Respostas Rápidas no WhatsApp Business</h3>
+      <p>10 minutos de configuração que evitam a perda de clientes. Cada resposta rápida é acionada com um atalho de texto — digita "/bronze" e a mensagem completa sobre o serviço aparece automaticamente. Resolve o problema de demora sem mudar a rotina de atendimento.</p>
+      <div class="oport-impact" style="color:#059669;">
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 1v10M1 6l5-5 5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        Retenção de Clientes · 10 Minutos
+      </div>
+    </div>
+
+    <div class="oport-card">
+      <div class="oport-num">Oportunidade 04 · Alta Prioridade</div>
+      <h3>Gravar Depoimentos de Clientes da Estética</h3>
+      <p>Keitlin mencionou nos prints: "Vou gravar uns depoimentos de clientes de estética na próxima semana." Isso é exatamente o conteúdo mais poderoso para o @boascuida — prova social em vídeo, humaniza a marca, mostra resultado real. Um depoimento de 60 segundos vale mais do que 20 posts de imagem.</p>
+      <div class="oport-impact" style="color:#059669;">
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 1v10M1 6l5-5 5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        Prova Social · Próxima Semana
+      </div>
+    </div>
+
+    <div class="oport-card">
+      <div class="oport-num">Oportunidade 05 · Média Prioridade</div>
+      <h3>Criar Calendário Editorial Simples para as Duas Contas</h3>
+      <p>Sem pauta, a criação de conteúdo depende de inspiração. Com uma pauta de apenas 3 temas por semana para cada conta, a consistência se torna possível mesmo sem equipe. O @boasbronze já tem audiência nos stories — basta transformar isso em conteúdo de feed com frequência.</p>
+      <div class="oport-impact" style="color:#D97706;">
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 1v10M1 6l5-5 5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        Consistência · Esta Semana
+      </div>
+    </div>
+
+    <div class="oport-card">
+      <div class="oport-num">Oportunidade 06 · Médio Prazo</div>
+      <h3>Promover o Pacote Mensal de Estética como Produto Principal</h3>
+      <p>Com o @boascuida ativo e com conteúdo, o Pacote Estética Mensal (R$600) pode ser o produto focal da conta — comunicado com frequência semanal. Esse produto cria receita recorrente e estabiliza o faturamento, reduzindo a dependência de novos agendamentos todo mês.</p>
+      <div class="oport-impact" style="color:#D97706;">
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 1v10M1 6l5-5 5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        Receita Recorrente · Médio Prazo
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ROADMAP FASE 2 -->
+<section id="roadmap">
+  <div class="section-label">05 — Roadmap · Fase 2</div>
+  <h2 class="section-title">Os próximos 90 dias</h2>
+  <p class="section-desc">A Fase 1 criou a estrutura. A Fase 2 é sobre ativação, conteúdo e primeiro ciclo de crescimento das duas contas.</p>
+
+  <div class="roadmap-timeline">
+    <div class="roadmap-phase done">
+      <div class="phase-header">
+        <div class="phase-dot" style="background:#059669;box-shadow:0 0 8px rgba(5,150,105,0.5);"></div>
+        <span class="phase-num" style="color:#059669;">Fase 1 · Concluída</span>
+        <span class="phase-period">Maio 2026</span>
+      </div>
+      <h3 style="color:#059669;">Fundação ✓</h3>
+      <ul class="roadmap-items">
+        <li><span class="item-icon">✓</span> Bio do @boasbronze atualizada</li>
+        <li><span class="item-icon">✓</span> @boascuida criada com posicionamento</li>
+        <li><span class="item-icon">✓</span> Avaliações Google em captação</li>
+        <li><span class="item-icon">⚠</span> Fotos Google — travadas (41 rejeições)</li>
+        <li><span class="item-icon">⚠</span> Templates WhatsApp — não criados ainda</li>
+      </ul>
+    </div>
+
+    <div class="roadmap-phase active">
+      <div class="phase-header">
+        <div class="phase-dot" style="background:#0055E5;box-shadow:0 0 8px rgba(0,102,255,0.5);"></div>
+        <span class="phase-num">Fase 2 · Ativa</span>
+        <span class="phase-period">Junho 2026</span>
+      </div>
+      <h3>Ativação & Conteúdo</h3>
+      <ul class="roadmap-items">
+        <li><span class="item-icon">🎯</span> 3 primeiros posts @boascuida esta semana</li>
+        <li><span class="item-icon">📸</span> Sessão de fotos para Google (espaço + processo)</li>
+        <li><span class="item-icon">💬</span> 5 templates WhatsApp configurados</li>
+        <li><span class="item-icon">🎬</span> Gravar depoimentos de clientes da estética</li>
+        <li><span class="item-icon">🗓️</span> Calendário editorial semanal — ambas as contas</li>
+        <li><span class="item-icon">📦</span> Promover Pacote Mensal R$600 no @boascuida</li>
+      </ul>
+    </div>
+
+    <div class="roadmap-phase">
+      <div class="phase-header">
+        <div class="phase-dot" style="background:rgba(0,102,255,0.2);"></div>
+        <span class="phase-num">Fase 3</span>
+        <span class="phase-period">Julho–Agosto 2026</span>
+      </div>
+      <h3>Escala & Receita</h3>
+      <ul class="roadmap-items">
+        <li><span class="item-icon">📈</span> Meta @boascuida: 300+ seguidores</li>
+        <li><span class="item-icon">💰</span> Meta: 5+ pacotes mensais ativos</li>
+        <li><span class="item-icon">📢</span> Primeiro tráfego pago — estética local BH</li>
+        <li><span class="item-icon">⭐</span> Meta Google: 35+ avaliações</li>
+        <li><span class="item-icon">📈</span> Meta @boasbronze: 4.000+ seguidores</li>
+        <li><span class="item-icon">🏆</span> Primeiro Reel de antes/depois com alcance real</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PRÓXIMOS PASSOS -->
+<section id="proximos">
+  <div class="section-label">06 — Próximos Passos</div>
+  <h2 class="section-title">O que fazer agora — esta semana</h2>
+  <p class="section-desc">Quatro ações específicas, executáveis em menos de 2 horas no total. Tudo o que bloqueia o crescimento desta semana.</p>
+
+  <div class="proximos-grid">
+    <div class="passo-card">
+      <div class="passo-num">1</div>
+      <h3>Configurar 5 Respostas Rápidas no WhatsApp Business</h3>
+      <p>No WhatsApp Business: Configurações → Ferramentas comerciais → Respostas rápidas. Criar atalhos para: preço do bronze (/bronze), como agendar (/agendar), serviços de estética (/estetica), pacote mensal (/pacote) e horários disponíveis (/horario). Dura 10 minutos e para de perder clientes imediatamente.</p>
+      <span class="passo-deadline">→ Fazer hoje, antes de qualquer outra ação</span>
+    </div>
+
+    <div class="passo-card">
+      <div class="passo-num">2</div>
+      <h3>Publicar 3 Posts no @boascuida Esta Semana</h3>
+      <p>Post 1: apresentação de Keitlin como esteticista com 10 anos e o Método Fast Shape. Post 2: um before/after de estética já existente no portfólio — foto lateral com legenda simples explicando o procedimento. Post 3: listar os 3 serviços principais com preço e CTA para WhatsApp. Sem template elaborado — simples, real, publicado.</p>
+      <span class="passo-deadline">→ Publicar nos próximos 5 dias</span>
+    </div>
+
+    <div class="passo-card">
+      <div class="passo-num">3</div>
+      <h3>Sessão de Fotos para o Google — 30 Minutos</h3>
+      <p>Tirar 10 fotos no espaço de atendimento: (1) maca arrumada com toalha limpa, (2) equipamentos organizados, (3) produtos usados nos tratamentos, (4) Keitlin preparando o espaço, (5) close das mãos em procedimento. Nenhuma dessas tem texto sobreposto ou imagem de corpo — todas passam na revisão do Google. Resolver de uma vez o problema das 41 rejeições.</p>
+      <span class="passo-deadline">→ Fazer antes do próximo atendimento</span>
+    </div>
+
+    <div class="passo-card">
+      <div class="passo-num">4</div>
+      <h3>Gravar Depoimento de 1 Cliente de Estética</h3>
+      <p>Keitlin já mencionou que vai gravar depoimentos na próxima semana — isso precisa acontecer. Pedir para um cliente satisfeito gravar um vídeo de 60 segundos respondendo: "qual era o problema antes, o que você fez, e qual foi o resultado?" Sem roteiro elaborado — natural, real, espontâneo. Esse vídeo se torna o primeiro Reel do @boascuida com potencial viral real.</p>
+      <span class="passo-deadline">→ Agendar com cliente nesta semana</span>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CTA FINAL -->
+<section>
+  <div class="cta-section">
+    <h2>A estrutura está criada.<br>Agora é sobre execução.</h2>
+    <p>
+      O Raio-X Fase 2 mostrou que Keitlin tomou as ações certas. Os próximos 30 dias são decisivos — com conteúdo ativo nas duas contas e o Google desbloqueado, o crescimento começa a ser visível.
+    </p>
+    <div class="cta-buttons">
+      <a href="https://wa.me/5531975073862" class="btn-whatsapp" target="_blank">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.117.549 4.107 1.51 5.833L0 24l6.335-1.493A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.89 0-3.66-.49-5.2-1.348l-.373-.22-3.862.91.924-3.768-.242-.388A9.94 9.94 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+        Falar com a YM
+      </a>
+      <a href="https://ymmarketingenegocios.github.io/boasbronze/" target="_blank" class="btn-ghost">
+        Ver Raio-X Fase 1 →
+      </a>
+    </div>
+
+    <div class="next-service">
+      <div class="next-service-info">
+        <div class="next-service-label">Próximo Passo Recomendado</div>
+        <h4>Projeto Estratégico Completo · Fase 3</h4>
+        <p>Calendário editorial para @boasbronze e @boascuida, identidade visual da conta de estética, templates de posts, estratégia de tráfego pago e acompanhamento mensal.</p>
+      </div>
+      <div class="next-service-price">
+        <div class="price-label">A partir de</div>
+        <div class="price">Sob consulta</div>
+        <div class="price-label">Proposta personalizada</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="footer-logo">
+        <svg width="28" height="32" viewBox="0 0 100 110" fill="none">
+          <path d="M10 10 L50 60 L90 10" stroke="#3D5BFF" stroke-width="18" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <circle cx="50" cy="90" r="12" fill="#3D5BFF"/>
+        </svg>
+        <span class="ym-text">YM Marketing & Negócios</span>
+      </div>
+      <p>Estratégia de marketing com inteligência. Da presença digital à captação real de clientes.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Serviços</h4>
+      <a href="#">Raio-X Estratégico</a>
+      <a href="#">Projeto Estratégico</a>
+      <a href="#">Posicionamento</a>
+      <a href="#">Consultoria Mensal</a>
+      <a href="#">Gestão de Instagram</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contato</h4>
+      <a href="https://wa.me/5531975073862" target="_blank">WhatsApp</a>
+      <a href="https://instagram.com/ym_marketingenegocios" target="_blank">Instagram</a>
+      <a href="#">E-mail</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 YM Marketing & Negócios · Raio-X Estratégico Fase 2 — Boas Bronze e Estética · Confidencial</p>
+    <span class="footer-sig">Desenvolvido com estratégia por YM</span>
+  </div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
