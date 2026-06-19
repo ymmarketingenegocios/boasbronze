@@ -7,184 +7,478 @@
 :root{--areia:#F3EDE2;--areia-2:#E9E0D0;--carvao:#2E2A24;--salvia:#9AAE8E;--salvia-esc:#5E7355;--terra:#C97B57;--sol:#F2C14E;--branco:#FCFAF6;}
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
 html{scroll-behavior:smooth;}
-body{font-family:'Nunito Sans',system-ui,sans-serif;color:var(--carvao);background:var(--branco);font-size:16px;line-height:1.6;padding-bottom:74px;}
+body{font-family:'Nunito Sans',system-ui,sans-serif;color:var(--carvao);background:var(--branco);font-size:16px;line-height:1.6;padding-bottom:30px;}
 h1,h2,h3{font-family:'Fraunces',Georgia,serif;}
 a{color:inherit;}
-.topbar{position:sticky;top:0;z-index:40;background:rgba(252,250,246,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--areia-2);display:flex;align-items:center;gap:10px;padding:12px 16px;padding-top:max(12px,env(safe-area-inset-top));}
+.wrap{max-width:920px;margin:0 auto;padding:0 18px;}
+.topbar{position:sticky;top:0;z-index:60;background:rgba(252,250,246,.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--areia-2);display:flex;align-items:center;gap:10px;padding:12px 18px;padding-top:max(12px,env(safe-area-inset-top));}
 .topbar .mk{width:26px;height:26px;border-radius:50%;background:var(--sol);position:relative;flex:none;}
 .topbar .mk:after{content:"";position:absolute;left:4px;bottom:5px;width:18px;height:8px;border-bottom:2px solid var(--carvao);border-radius:0 0 30px 30px;}
 .topbar b{font-family:'Fraunces',serif;font-size:17px;}
-.topbar small{margin-left:auto;color:var(--salvia-esc);letter-spacing:1px;font-size:10px;text-transform:uppercase;}
-.wrap{max-width:1000px;margin:0 auto;}
-section{padding:32px 18px 34px;border-bottom:1px solid var(--areia-2);scroll-margin-top:60px;}
-.eyebrow{letter-spacing:4px;text-transform:uppercase;font-size:11px;color:var(--terra);font-weight:800;margin-bottom:8px;}
-h2.sec{font-size:27px;line-height:1.05;letter-spacing:-0.5px;}
-.secline{width:44px;height:3px;background:var(--sol);margin:12px 0 18px;border-radius:2px;}
-/* HERO + progresso */
-.hero{background:linear-gradient(180deg,var(--areia),#EFE7D9);padding:50px 20px 42px;border-bottom:none;}
-.hero .eyebrow{color:var(--salvia-esc);}
-.hero h1{font-size:clamp(32px,6.5vw,52px);line-height:1.0;letter-spacing:-1px;}
+.topbar .actions{margin-left:auto;display:flex;gap:14px;}
+.topbar .actions button{background:none;border:none;font-family:inherit;font-size:12px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;color:var(--salvia-esc);cursor:pointer;}
+/* HERO */
+.hero{background:linear-gradient(180deg,var(--areia),#EFE7D9);padding:46px 18px 38px;}
+.hero .in{max-width:920px;margin:0 auto;}
+.hero .eyebrow{letter-spacing:4px;text-transform:uppercase;font-size:11px;color:var(--salvia-esc);font-weight:800;margin-bottom:10px;}
+.hero h1{font-size:clamp(32px,6.5vw,50px);line-height:1.0;letter-spacing:-1px;}
 .hero h1 em{font-style:italic;color:var(--terra);}
-.hero .sub{margin-top:14px;font-size:16px;max-width:60ch;}
-.progress{margin-top:24px;background:var(--branco);border:1px solid var(--areia-2);border-radius:16px;padding:18px 20px;}
-.progress .top{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:10px;}
-.progress .pct{font-family:'Fraunces',serif;font-size:34px;color:var(--terra);line-height:1;}
+.hero .sub{margin-top:13px;font-size:16px;max-width:60ch;}
+.progress{margin-top:22px;background:var(--branco);border:1px solid var(--areia-2);border-radius:16px;padding:16px 18px;}
+.progress .pct{font-family:'Fraunces',serif;font-size:30px;color:var(--terra);line-height:1;}
 .progress .lab{font-size:13px;font-weight:700;color:var(--salvia-esc);}
-.bar{height:12px;border-radius:8px;background:var(--areia-2);overflow:hidden;}
-.bar .fill{height:100%;width:100%;background:linear-gradient(90deg,var(--salvia),var(--salvia-esc));border-radius:8px;}
-.pstats{display:flex;gap:18px;margin-top:12px;font-size:13px;font-weight:700;}
-.pstats .dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:6px;vertical-align:middle;}
-.pstats .ok .dot{background:var(--salvia-esc);}
-.pstats .pend .dot{background:var(--terra);}
-/* CARDS dashboard */
-.grid{display:grid;grid-template-columns:1fr;gap:14px;}
-@media(min-width:620px){.grid{grid-template-columns:1fr 1fr;}}
-@media(min-width:900px){.grid{grid-template-columns:1fr 1fr;}}
-.card{background:var(--branco);border:1px solid var(--areia-2);border-left:5px solid var(--salvia-esc);border-radius:14px;padding:18px;display:flex;flex-direction:column;}
-.chead{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;}
-.cnum{font-family:'Fraunces',serif;font-size:24px;color:var(--terra);}
-.badge{font-size:11px;font-weight:800;border-radius:20px;padding:4px 11px;letter-spacing:.5px;}
-.badge.ok{background:#DCE5D4;color:var(--salvia-esc);}
-.card h3{font-size:19px;line-height:1.12;margin-bottom:6px;}
-.card p{font-size:14px;margin-bottom:14px;flex:1;}
-.cbtns{display:flex;gap:10px;}
-.btn{flex:1;text-align:center;text-decoration:none;font-weight:800;font-size:14px;padding:11px 14px;border-radius:24px;}
-.btn.web{background:var(--salvia-esc);color:#fff;}
-.btn.pdf{background:var(--areia);color:var(--terra);border:1.5px solid var(--areia-2);}
-.btn:active{transform:scale(.97);}
-/* CHECKLIST */
-.cklist{display:grid;grid-template-columns:1fr;gap:14px;}
+.bar{height:11px;border-radius:7px;background:var(--areia-2);overflow:hidden;margin-top:9px;}
+.bar .fill{height:100%;width:100%;background:linear-gradient(90deg,var(--salvia),var(--salvia-esc));border-radius:7px;}
+.pstats{display:flex;flex-wrap:wrap;gap:16px;margin-top:11px;font-size:12.5px;font-weight:700;}
+.pstats .dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:6px;}
+.pstats .ok .dot{background:var(--salvia-esc);} .pstats .pend .dot{background:var(--terra);}
+/* LISTA DE MÓDULOS (visão macro) */
+.modlist{max-width:920px;margin:26px auto 0;padding:0 18px;}
+.modlist .seclabel{font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--terra);font-weight:800;margin-bottom:12px;}
+.mod{border:1px solid var(--areia-2);border-radius:14px;background:var(--branco);margin-bottom:10px;overflow:hidden;scroll-margin-top:72px;transition:border-color .2s,box-shadow .2s;}
+.mod.open{border-color:var(--salvia);box-shadow:0 6px 20px rgba(94,115,85,.10);}
+.mod-head{width:100%;background:none;border:none;font-family:inherit;text-align:left;cursor:pointer;display:flex;align-items:center;gap:14px;padding:16px 16px;}
+.mod-num{font-family:'Fraunces',serif;font-size:22px;color:var(--terra);flex:none;width:34px;}
+.mod-info{flex:1;min-width:0;}
+.mod-name{display:block;font-family:'Fraunces',serif;font-size:18px;line-height:1.15;}
+.mod-res{display:block;font-size:13.5px;color:var(--salvia-esc);margin-top:2px;}
+.mod-toggle{flex:none;display:flex;align-items:center;gap:7px;color:var(--salvia-esc);font-weight:800;font-size:12px;}
+.mod-toggle .tarrow{transition:transform .3s;font-size:11px;}
+.mod.open .mod-toggle .tarrow{transform:rotate(180deg);}
+.mod.open .mod-toggle .tlabel:after{content:"";}
+@media(max-width:560px){.mod-toggle .tlabel{display:none;} .mod-res{font-size:13px;}}
+/* PAINEL EXPANSÍVEL com animação suave (grid-rows) */
+.mod-panel{display:grid;grid-template-rows:0fr;transition:grid-template-rows .34s ease;}
+.mod.open .mod-panel{grid-template-rows:1fr;}
+.mod-panel>.mod-inner{overflow:hidden;}
+.mod-inner{padding:0 18px;}
+.mod.open .mod-inner{padding:4px 18px 20px;border-top:1px solid var(--areia-2);}
+.mod-collapse{margin-top:18px;background:var(--areia);border:1px solid var(--areia-2);color:var(--salvia-esc);font-family:inherit;font-weight:800;font-size:13px;padding:10px 18px;border-radius:24px;cursor:pointer;}
+.mod-collapse:active{transform:scale(.97);}
+/* tipografia de conteúdo */
+.mod-inner h3{font-size:16px;margin:16px 0 5px;}
+.mod-inner p{margin-bottom:10px;}
+.lead{font-family:'Fraunces',serif;font-style:italic;font-size:16px;color:var(--salvia-esc);margin-bottom:12px;}
+.small{font-size:13px;color:var(--salvia-esc);}
+.kk{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--terra);font-weight:800;margin:12px 0 4px;}
+.kk2{font-family:'Fraunces',serif;font-size:19px;margin:22px 0 10px;padding-top:8px;border-top:2px solid var(--areia-2);}
+ul.b{list-style:none;margin:6px 0 12px;} ul.b li{position:relative;padding-left:20px;margin-bottom:6px;} ul.b li:before{content:"";position:absolute;left:0;top:9px;width:8px;height:8px;border-radius:50%;background:var(--salvia);}
+.cards{display:grid;grid-template-columns:1fr;gap:12px;margin-top:8px;}
+@media(min-width:620px){.cards.two{grid-template-columns:1fr 1fr;}.cards.three{grid-template-columns:1fr 1fr 1fr;}}
+.card{background:var(--areia);border-radius:12px;padding:14px 15px;}
+.card .lbl{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--terra);font-weight:800;margin-bottom:5px;}
+.card p{margin:0;font-size:14px;}
+table{width:100%;border-collapse:collapse;margin:10px 0;font-size:14px;}
+th{text-align:left;background:var(--salvia-esc);color:#fff;padding:9px 10px;font-size:12px;}
+td{padding:9px 10px;border-bottom:1px solid var(--areia-2);vertical-align:top;}
+tr:nth-child(even) td{background:var(--areia);}
+.quote{background:var(--salvia-esc);color:#fff;border-radius:12px;padding:16px 18px;font-family:'Fraunces',serif;font-style:italic;font-size:17px;line-height:1.35;margin:8px 0;}
+.terr{font-weight:800;letter-spacing:2px;font-size:13px;text-transform:uppercase;color:var(--terra);}
+.pill{display:inline-block;background:var(--areia-2);border-radius:18px;padding:5px 12px;font-size:13px;margin:0 5px 7px 0;}
+.pill.good{background:#DCE5D4;color:var(--salvia-esc);} .pill.bad{background:#F0D9CF;color:#9c4a2c;}
+/* conteúdos (30 posts) */
+.post{background:var(--branco);border:1px solid var(--areia-2);border-left-width:5px;border-radius:12px;margin-bottom:10px;overflow:hidden;}
+.post summary{list-style:none;cursor:pointer;padding:13px 15px;display:flex;align-items:center;gap:9px;flex-wrap:wrap;}
+.post summary::-webkit-details-marker{display:none;}
+.post .pd{font-family:'Fraunces',serif;font-size:17px;color:var(--terra);}
+.post .pf{font-size:11px;font-weight:800;color:var(--salvia-esc);background:var(--areia);border-radius:10px;padding:2px 9px;text-transform:uppercase;}
+.post .pt{font-weight:700;font-size:15px;flex:1;min-width:140px;}
+.post .pbody{padding:0 15px 15px;}
+.chip{font-size:11px;font-weight:800;color:#fff;border-radius:11px;padding:2px 9px;}
+.c-aut{background:#5E7355;}.c-con{background:#C97B57;}.c-edu{background:#7E94B0;}.c-prova{background:#9AAE8E;}.c-conv{background:#D9A23B;}
+.obj{font-size:13.5px;margin-bottom:8px;}.obj b{color:var(--terra);text-transform:uppercase;font-size:11px;}
+.cap{font-family:'Fraunces',serif;font-style:italic;font-size:15px;color:var(--salvia-esc);margin-bottom:4px;}
+ul.mini{list-style:none;margin:2px 0 6px;} ul.mini li{position:relative;padding-left:15px;margin-bottom:4px;font-size:13.5px;} ul.mini li:before{content:"";position:absolute;left:0;top:8px;width:6px;height:6px;border-radius:50%;background:var(--salvia);}
+.ctab{margin-top:10px;background:var(--areia);border-radius:8px;padding:8px 11px;font-size:13.5px;font-weight:700;}.ctab b{color:var(--terra);text-transform:uppercase;font-size:11px;}
+/* whatsapp */
+.msg{border:1px solid var(--areia-2);border-radius:12px;padding:13px;margin-bottom:11px;}
+.mt{font-weight:800;font-size:14px;margin-bottom:8px;}
+.bb{background:#E7F3E4;border:1px solid #CDE6C6;border-radius:4px 12px 12px 12px;padding:11px 14px;font-size:14px;color:#1f3b1a;line-height:1.5;}
+.mn{font-size:12.5px;color:var(--salvia-esc);margin-top:8px;}.mn:before{content:"💡 ";}
+.objc{margin-bottom:12px;}.oq{font-family:'Fraunces',serif;font-style:italic;font-size:16px;color:var(--terra);margin-bottom:6px;}
+.acc{border:1px solid var(--areia-2);border-radius:12px;background:var(--branco);margin-bottom:9px;overflow:hidden;}
+.acc summary{list-style:none;cursor:pointer;padding:14px 16px;font-weight:800;font-size:15px;display:flex;align-items:center;justify-content:space-between;}
+.acc summary::-webkit-details-marker{display:none;}
+.acc summary .ic{flex:none;width:22px;height:22px;border-radius:50%;background:var(--areia);display:flex;align-items:center;justify-content:center;color:var(--terra);transition:transform .2s;}
+.acc[open] summary .ic{transform:rotate(45deg);}
+.acc .bb{margin:0 16px 14px;}
+.fun{background:var(--areia);border-radius:12px;padding:14px 16px;border-left:5px solid var(--terra);margin-bottom:10px;}
+.fun:first-of-type{border-left-color:var(--salvia-esc);}
+.fh2{font-family:'Fraunces',serif;font-size:17px;margin-bottom:7px;}
+.fun p{font-size:14px;margin-bottom:5px;}.fun p b{color:var(--terra);font-size:11px;}.fun p.nbad b{color:#9c4a2c;}
+ul.check{list-style:none;} ul.check li{position:relative;padding:10px 14px 10px 44px;background:var(--areia);border-radius:10px;margin-bottom:8px;font-size:14px;font-weight:600;}
+ul.check li:before{content:"✓";position:absolute;left:13px;top:10px;width:21px;height:21px;background:var(--salvia-esc);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;}
+/* próximos passos */
+.extra{max-width:920px;margin:26px auto 0;padding:24px 18px 0;border-top:1px solid var(--areia-2);}
+.extra .seclabel{font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--terra);font-weight:800;margin-bottom:8px;}
+.extra h2{font-size:24px;margin-bottom:14px;}
+.passo{display:grid;grid-template-columns:84px 1fr;gap:12px;padding:12px 0;border-bottom:1px solid var(--areia-2);}
+.pn{font-family:'Fraunces',serif;font-size:17px;color:var(--terra);}
+.supbox{background:var(--salvia-esc);color:#fff;border-radius:14px;padding:18px;margin-top:16px;}
+.supbox h3{color:var(--sol);margin-bottom:8px;font-size:18px;}
+.supbox ul{list-style:none;margin-top:6px;}
+.supbox li{position:relative;padding-left:20px;margin-bottom:6px;font-size:14px;color:#EFEAE0;}
+.supbox li:before{content:"";position:absolute;left:0;top:8px;width:8px;height:8px;border-radius:50%;background:var(--sol);}
+.cklist{display:grid;grid-template-columns:1fr;gap:14px;margin-top:14px;}
 @media(min-width:760px){.cklist{grid-template-columns:repeat(3,1fr);}}
 .ckcol{border-radius:14px;padding:16px;}
 .ckcol.imediato{background:#F0D9CF;}.ckcol.d30{background:var(--areia);}.ckcol.d90{background:#DCE5D4;}
 .ckh{font-family:'Fraunces',serif;font-size:18px;margin-bottom:10px;}
-.ckcol ul{list-style:none;}
-.ckcol li{position:relative;padding-left:22px;margin-bottom:8px;font-size:14px;}
-.ckcol li:before{content:"";position:absolute;left:0;top:7px;width:9px;height:9px;border-radius:3px;background:var(--salvia-esc);}
-.docbtn{display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-weight:800;font-size:14px;padding:12px 20px;border-radius:26px;background:var(--carvao);color:#fff;margin-top:6px;}
-.toplink{display:block;text-align:center;color:var(--salvia-esc);font-size:13px;font-weight:700;text-decoration:none;padding:22px;}
-.foot{background:var(--carvao);color:#CFC8BC;padding:30px 18px;text-align:center;font-size:13px;}
+.ckcol ul{list-style:none;} .ckcol li{position:relative;padding-left:22px;margin-bottom:8px;font-size:14px;} .ckcol li:before{content:"";position:absolute;left:0;top:7px;width:9px;height:9px;border-radius:3px;background:var(--salvia-esc);}
+.foot{background:var(--carvao);color:#CFC8BC;padding:30px 18px;text-align:center;font-size:13px;margin-top:30px;}
 .foot b{color:#fff;font-family:'Fraunces',serif;}
-.tabnav{position:fixed;left:0;right:0;bottom:0;z-index:50;background:var(--branco);border-top:1px solid var(--areia-2);display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding:8px 10px calc(8px + env(safe-area-inset-bottom));justify-content:center;}
-.tabnav::-webkit-scrollbar{display:none;}
-.tabnav a{flex:none;text-decoration:none;color:var(--salvia-esc);background:var(--areia);border-radius:20px;padding:8px 14px;font-size:12px;font-weight:700;white-space:nowrap;}
-.tabnav a:active{background:var(--salvia);color:#fff;}
 :focus-visible{outline:3px solid var(--terra);outline-offset:2px;border-radius:6px;}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto;} .mod-panel{transition:none;} .mod-toggle .tarrow{transition:none;}}
 </style></head><body>
-<div class="topbar"><div class="mk"></div><b>Boas Cuida</b><small>Central de Entregas</small></div>
-<div class="wrap">
 
-<section class="hero" id="home">
+<div class="topbar"><div class="mk"></div><b>Boas Cuida</b>
+<div class="actions"><button onclick="expandAll()">Abrir tudo</button><button onclick="collapseAll()">Fechar tudo</button></div></div>
+
+<div class="hero"><div class="in">
 <div class="eyebrow">YM Marketing &amp; Negócios · Plano Estratégico Digital</div>
 <h1>Central de <em>Entregas</em></h1>
-<div class="sub">Todas as entregas do projeto em um só lugar. Cada módulo abre em versão web (navegável no celular) ou em PDF. Toque para acessar.</div>
+<div class="sub">Toda a documentação do projeto em um só lugar. Toque em um módulo para abrir os detalhes; toque de novo para recolher.</div>
 <div class="progress">
-  <div class="top"><div><span class="pct">100%</span> <span class="lab">do projeto concluído</span></div></div>
-  <div class="bar"><div class="fill"></div></div>
-  <div class="pstats">
-    <span class="ok"><span class="dot"></span>8 módulos concluídos</span>
-    <span class="pend"><span class="dot"></span>Aplicação visual final pendente de materiais</span>
+<div><span class="pct">100%</span> <span class="lab">da estratégia concluída</span></div>
+<div class="bar"><div class="fill"></div></div>
+<div class="pstats"><span class="ok"><span class="dot"></span>8 módulos concluídos</span><span class="pend"><span class="dot"></span>Aplicação visual final pendente de materiais</span></div>
+</div>
+</div></div>
+
+<div class="modlist">
+<div class="seclabel">Os 8 módulos</div>
+<div class="mod" id="diagnostico" data-mod>
+  <button class="mod-head" aria-expanded="false" onclick="toggleMod(this)">
+    <span class="mod-num">01</span>
+    <span class="mod-info"><span class="mod-name">Diagnóstico Estratégico</span><span class="mod-res">Reposicionamento de Boas Bronze para Boas Cuida e a arquitetura comercial em três níveis.</span></span>
+    <span class="mod-toggle"><span class="tlabel">Ver detalhes</span><span class="tarrow">▼</span></span>
+  </button>
+  <div class="mod-panel">
+    <div class="mod-inner">
+      <div class="quote">A estética é a ferramenta. O autocuidado é a marca.</div>
+<h3>Resumo do negócio</h3>
+<p>A Boas atua em Belo Horizonte/MG com bronzeamento e procedimentos estéticos não invasivos. A maioria das clientes chega pelo bronze, mas o negócio oferece um leque maior de serviços de autocuidado e bem-estar ainda pouco conhecidos — tudo com base científica, segurança e procedimentos regulados pela Anvisa, sem injeções e sem milagres.</p>
+<h3>Oportunidade de posicionamento</h3>
+<p>Enquanto a maioria comunica beleza, emagrecimento e transformação física, a Boas pode ocupar um território diferente: <b>autocuidado sem invasão</b>.</p>
+<h3>Arquitetura comercial</h3>
+<div class="cards three">
+<div class="card"><div class="lbl">Entrada</div><p><b>Bronze e Limpeza de Pele.</b> Atrair e gerar o primeiro contato.</p></div>
+<div class="card"><div class="lbl">Recorrência</div><p><b>Plano VIP</b> (R$550, 6 créditos, 6 meses). Fidelização.</p></div>
+<div class="card"><div class="lbl">Premium</div><p><b>Fast Shape.</b> Maior transformação e ticket.</p></div>
+</div>
+<h3>Direção estratégica</h3>
+<p><b>De</b> “Boas Bronze = bronze + procedimentos soltos” <b>para</b> “Boas Cuida = marca de autocuidado, bem-estar e estética não invasiva”.</p>
+<p class="terr">Autocuidado · Bem-estar · Estética não invasiva</p>
+      <button class="mod-collapse" onclick="collapseMod(this)">Ocultar detalhes ▲</button>
+    </div>
   </div>
 </div>
-</section>
-
-<section id="modulos">
-<div class="eyebrow">Os 8 módulos</div>
-<h2 class="sec">Entregas do projeto</h2>
-<div class="secline"></div>
-<div class="grid"><article class="card" id="m01">
-          <div class="chead"><span class="cnum">01</span><span class="badge ok">Concluído</span></div>
-          <h3>Diagnóstico Estratégico</h3>
-          <p>Reposicionamento de Boas Bronze para Boas Cuida e a arquitetura comercial em três níveis.</p>
-          <div class="cbtns">
-            <a class="btn web" href="01-diagnostico.html">Abrir web</a>
-            <a class="btn pdf" href="pdf/01-diagnostico.pdf" target="_blank" rel="noopener">PDF</a>
-          </div>
-        </article>
-<article class="card" id="m02">
-          <div class="chead"><span class="cnum">02</span><span class="badge ok">Concluído</span></div>
-          <h3>Identidade da Marca</h3>
-          <p>Essência, posicionamento, arquétipos, tom de voz e cenários de arquitetura de marca.</p>
-          <div class="cbtns">
-            <a class="btn web" href="02-identidade.html">Abrir web</a>
-            <a class="btn pdf" href="pdf/02-identidade.pdf" target="_blank" rel="noopener">PDF</a>
-          </div>
-        </article>
-<article class="card" id="m03">
-          <div class="chead"><span class="cnum">03</span><span class="badge ok">Concluído</span></div>
-          <h3>Brand Book</h3>
-          <p>Paleta, tipografia, direção fotográfica e sistema visual da marca.</p>
-          <div class="cbtns">
-            <a class="btn web" href="03-brandbook.html">Abrir web</a>
-            <a class="btn pdf" href="pdf/03-brandbook.pdf" target="_blank" rel="noopener">PDF</a>
-          </div>
-        </article>
-<article class="card" id="m04">
-          <div class="chead"><span class="cnum">04</span><span class="badge ok">Concluído</span></div>
-          <h3>Instagram Profissional</h3>
-          <p>Perfil, bio, 9 destaques, pilares de conteúdo e sistema de feed.</p>
-          <div class="cbtns">
-            <a class="btn web" href="04-instagram.html">Abrir web</a>
-            <a class="btn pdf" href="pdf/04-instagram.pdf" target="_blank" rel="noopener">PDF</a>
-          </div>
-        </article>
-<article class="card" id="m05">
-          <div class="chead"><span class="cnum">05</span><span class="badge ok">Concluído</span></div>
-          <h3>Calendário Editorial</h3>
-          <p>Análise de produtos, arquitetura editorial e calendário de 30 dias.</p>
-          <div class="cbtns">
-            <a class="btn web" href="05-calendario.html">Abrir web</a>
-            <a class="btn pdf" href="pdf/05-calendario.pdf" target="_blank" rel="noopener">PDF</a>
-          </div>
-        </article>
-<article class="card" id="m06">
-          <div class="chead"><span class="cnum">06</span><span class="badge ok">Concluído</span></div>
-          <h3>Conteúdos</h3>
-          <p>Os 30 posts do calendário desenvolvidos por completo, prontos para publicar.</p>
-          <div class="cbtns">
-            <a class="btn web" href="06-conteudos.html">Abrir web</a>
-            <a class="btn pdf" href="pdf/06-conteudos.pdf" target="_blank" rel="noopener">PDF</a>
-          </div>
-        </article>
-<article class="card" id="m07">
-          <div class="chead"><span class="cnum">07</span><span class="badge ok">Concluído</span></div>
-          <h3>Site / Link da Bio</h3>
-          <p>Site institucional mobile first, pronto para o link da bio.</p>
-          <div class="cbtns">
-            <a class="btn web" href="07-site.html">Abrir web</a>
-            <a class="btn pdf" href="pdf/07-site.pdf" target="_blank" rel="noopener">PDF</a>
-          </div>
-        </article>
-<article class="card" id="m08">
-          <div class="chead"><span class="cnum">08</span><span class="badge ok">Concluído</span></div>
-          <h3>WhatsApp Comercial</h3>
-          <p>Jornada, mensagens, objeções, funil e checklist de atendimento.</p>
-          <div class="cbtns">
-            <a class="btn web" href="08-whatsapp.html">Abrir web</a>
-            <a class="btn pdf" href="pdf/08-whatsapp.pdf" target="_blank" rel="noopener">PDF</a>
-          </div>
-        </article></div>
-<div style="margin-top:18px"><a class="docbtn" href="pdf/00-plano-estrategico.pdf" target="_blank" rel="noopener">📄 Documento executivo consolidado (PDF)</a></div>
-</section>
-
-<section id="checklist">
-<div class="eyebrow">Implementação</div>
-<h2 class="sec">Checklist geral</h2>
-<div class="secline"></div>
-<div class="cklist"><div class="ckcol imediato"><div class="ckh">Imediato</div><ul><li>Aplicar a bio equilibrada e o nome de exibição</li><li>Configurar botão de WhatsApp e link da bio</li><li>Criar e renomear os 9 destaques na ordem</li><li>Adotar paleta e fontes no material novo</li><li>Começar a publicar pelo calendário</li><li>Usar o playbook de WhatsApp no atendimento</li></ul></div><div class="ckcol d30"><div class="ckh">30 dias</div><ul><li>Publicar os 30 conteúdos</li><li>Produzir capas de destaques e 6 templates</li><li>Refazer fotos no novo estilo</li><li>Publicar o site / link da bio</li><li>Preencher todos os 9 destaques</li></ul></div><div class="ckcol d90"><div class="ckh">90 dias</div><ul><li>Consolidar a transição Bronze → Cuida</li><li>Montar banco de conteúdo por pilar</li><li>Revisar métricas e ajustar</li><li>Padronizar o atendimento no WhatsApp</li></ul></div></div>
-</section>
-
-<section id="pendencias">
-<div class="eyebrow">Para concluir</div>
-<h2 class="sec">Pendências da cliente</h2>
-<div class="secline"></div>
-<p>O projeto está <b>estrategicamente concluído</b>. Para a aplicação visual final dependemos de: <b>(1)</b> logo oficial em alta (SVG, PNG transparente, PDF vetorial) e <b>(2)</b> banco de imagens e vídeos (fotos profissionais, do espaço, dos procedimentos, da Keitlin; vídeos de atendimento e bastidores; resultados autorizados).</p>
-<a href="#home" class="toplink">↑ Voltar ao início</a>
-</section>
-
+<div class="mod" id="identidade" data-mod>
+  <button class="mod-head" aria-expanded="false" onclick="toggleMod(this)">
+    <span class="mod-num">02</span>
+    <span class="mod-info"><span class="mod-name">Identidade da Marca</span><span class="mod-res">Essência, posicionamento, arquétipos, tom de voz e território da marca.</span></span>
+    <span class="mod-toggle"><span class="tlabel">Ver detalhes</span><span class="tarrow">▼</span></span>
+  </button>
+  <div class="mod-panel">
+    <div class="mod-inner">
+      <div class="cards two">
+<div class="card"><div class="lbl">Propósito</div><p>Ajudar mulheres a se cuidarem de forma leve, segura e contínua.</p></div>
+<div class="card"><div class="lbl">Missão</div><p>Autocuidado e estética não invasiva com base científica, acolhimento e resultados reais.</p></div>
+<div class="card"><div class="lbl">Visão</div><p>Ser a referência de autocuidado sem invasão em BH.</p></div>
+<div class="card"><div class="lbl">Valores</div><p>Segurança acima de tendência. Verdade acima de promessa. Acolhimento acima de status.</p></div>
 </div>
+<h3>Posicionamento</h3>
+<p>Marca de autocuidado que usa a estética não invasiva como ferramenta, para mulheres de 25 a 40 anos que querem se cuidar sem procedimentos invasivos, julgamentos ou ambientes elitizados.</p>
+<h3>Personalidade &amp; arquétipos</h3>
+<div class="cards three">
+<div class="card"><div class="lbl">Primário</div><p><b>O Cuidador</b></p></div>
+<div class="card"><div class="lbl">Secundário</div><p><b>O Sábio</b></p></div>
+<div class="card"><div class="lbl">Tempero</div><p><b>O Amigo</b></p></div>
+</div>
+<h3>Tom de voz</h3>
+<p><span class="pill good">cuidar</span><span class="pill good">autocuidado</span><span class="pill good">sem invasão</span><span class="pill good">no seu tempo</span><span class="pill bad">milagre</span><span class="pill bad">agressivo</span><span class="pill bad">padrão de beleza</span></p>
+      <button class="mod-collapse" onclick="collapseMod(this)">Ocultar detalhes ▲</button>
+    </div>
+  </div>
+</div>
+<div class="mod" id="brandbook" data-mod>
+  <button class="mod-head" aria-expanded="false" onclick="toggleMod(this)">
+    <span class="mod-num">03</span>
+    <span class="mod-info"><span class="mod-name">Brand Book</span><span class="mod-res">Paleta, tipografia, direção fotográfica e sistema visual.</span></span>
+    <span class="mod-toggle"><span class="tlabel">Ver detalhes</span><span class="tarrow">▼</span></span>
+  </button>
+  <div class="mod-panel">
+    <div class="mod-inner">
+      <p class="lead">Conceito visual: aconchego profissional.</p>
+<h3>Paleta</h3>
+<div class="cards two">
+<div class="card" style="background:#F3EDE2"><div class="lbl">Principal · base</div><p><b>Areia</b> #F3EDE2</p></div>
+<div class="card" style="background:#5E7355;color:#fff"><div class="lbl" style="color:#F2C14E">Secundária</div><p><b>Sálvia</b> #5E7355</p></div>
+<div class="card" style="background:#C97B57;color:#fff"><div class="lbl" style="color:#fff">Apoio</div><p><b>Terracota</b> #C97B57</p></div>
+<div class="card" style="background:#F2C14E"><div class="lbl">Destaque</div><p><b>Sol</b> #F2C14E — só acento</p></div>
+</div>
+<h3>Tipografia</h3>
+<p><b>Fraunces</b> (títulos) + <b>Nunito Sans</b> (texto). Fontes gratuitas do Google Fonts.</p>
+<h3>Direção</h3>
+<ul class="b"><li>Fotografia real, luz natural, rosto e mãos — sem antes/depois chocante</li><li>Amarelo como acento (máx. 10% da arte), base areia</li><li>Formas orgânicas, cantos arredondados, muito respiro</li></ul>
+      <button class="mod-collapse" onclick="collapseMod(this)">Ocultar detalhes ▲</button>
+    </div>
+  </div>
+</div>
+<div class="mod" id="instagram" data-mod>
+  <button class="mod-head" aria-expanded="false" onclick="toggleMod(this)">
+    <span class="mod-num">04</span>
+    <span class="mod-info"><span class="mod-name">Instagram Profissional</span><span class="mod-res">Perfil, bio, 9 destaques e pilares de conteúdo.</span></span>
+    <span class="mod-toggle"><span class="tlabel">Ver detalhes</span><span class="tarrow">▼</span></span>
+  </button>
+  <div class="mod-panel">
+    <div class="mod-inner">
+      <h3>Perfil &amp; bio recomendada</h3>
+<p>Nome de exibição: <b>Boas Cuida | Estética &amp; Bem-estar</b> · @boascuida · botão ligado ao WhatsApp.</p>
+<div class="quote" style="font-size:15px">Autocuidado sem invasão 🤍 BH · Estética segura, leve e com resultado real · Plano VIP · Fast Shape — agende 👇</div>
+<h3>9 destaques (na ordem)</h3>
+<p>Comece Aqui · Sobre Mim · Plano VIP · Fast Shape · Procedimentos · Resultados · Dúvidas · Bastidores · Local</p>
+<h3>Pilares de conteúdo</h3>
+<table><tr><th>Pilar</th><th>Função</th></tr>
+<tr><td>Autoridade</td><td>Provar competência (10 anos, Anvisa, ciência)</td></tr>
+<tr><td>Conexão</td><td>Gerar identificação</td></tr>
+<tr><td>Educação</td><td>Reduzir medo e ensinar</td></tr>
+<tr><td>Prova social</td><td>Reduzir risco</td></tr>
+<tr><td>Conversão</td><td>Conduzir ao WhatsApp</td></tr></table>
+      <button class="mod-collapse" onclick="collapseMod(this)">Ocultar detalhes ▲</button>
+    </div>
+  </div>
+</div>
+<div class="mod" id="calendario" data-mod>
+  <button class="mod-head" aria-expanded="false" onclick="toggleMod(this)">
+    <span class="mod-num">05</span>
+    <span class="mod-info"><span class="mod-name">Calendário Editorial</span><span class="mod-res">Análise de produtos e calendário de 30 dias.</span></span>
+    <span class="mod-toggle"><span class="tlabel">Ver detalhes</span><span class="tarrow">▼</span></span>
+  </button>
+  <div class="mod-panel">
+    <div class="mod-inner">
+      <p class="lead">O foco não é volume — é posicionamento, confiança e recorrência.</p>
+<h3>Distribuição dos 30 posts</h3>
+<table><tr><th>Pilar</th><th>Posts</th></tr>
+<tr><td>Educação</td><td>9</td></tr><tr><td>Conexão</td><td>7</td></tr><tr><td>Prova Social</td><td>6</td></tr><tr><td>Conversão</td><td>5</td></tr><tr><td>Autoridade</td><td>3</td></tr></table>
+<p>Regra: nunca dois posts de conversão seguidos; toda conversão vem depois de conteúdo que aqueceu. O calendário dia a dia está detalhado no módulo <b>Conteúdos</b>.</p>
+      <button class="mod-collapse" onclick="collapseMod(this)">Ocultar detalhes ▲</button>
+    </div>
+  </div>
+</div>
+<div class="mod" id="conteudos" data-mod>
+  <button class="mod-head" aria-expanded="false" onclick="toggleMod(this)">
+    <span class="mod-num">06</span>
+    <span class="mod-info"><span class="mod-name">Conteúdos</span><span class="mod-res">Os 30 posts do calendário desenvolvidos por completo.</span></span>
+    <span class="mod-toggle"><span class="tlabel">Ver detalhes</span><span class="tarrow">▼</span></span>
+  </button>
+  <div class="mod-panel">
+    <div class="mod-inner">
+      <p class="small">Toque em cada dia para ver o conteúdo completo (capa/gancho, estrutura e CTA).</p><details class="post" style="border-left-color:#C97B57">
+<summary><span class="pd">Dia 1</span><span class="chip c-con">Conexão</span><span class="pf">Reels</span><span class="pt">História da Keitlin: como tudo começou</span></summary>
+<div class="pbody"><p class="obj"><b>Objetivo</b> · Apresentar a marca e criar identificação com a fundadora.</p><div class="kk">Gancho</div><p class="cap">“Há 10 anos eu não imaginava que cuidar dos outros se tornaria a minha vida.”</p><div class="kk">Fala</div><ul class="mini"><li>Abertura (gancho): "Há 10 anos eu não imaginava que cuidar dos outros se tornaria a minha vida."</li><li>Desenvolvimento: conte em poucas frases o ponto de partida — como começou no bronze, o que te fez querer cuidar de mulheres de verdade, e o momento em que percebeu que autocuidado era maior que estética.</li><li>Virada: "Foi aí que a Boas deixou de ser só bronze e virou Boas Cuida."</li><li>Conexão: "Hoje meu trabalho é fazer você se sentir segura, acolhida e bem cuidada — sem agulha, sem milagre e sem julgamento."</li></ul><div class="kk">Encerramento</div><p>"Esse perfil é pra você que também quer normalizar cuidar de si."</p><div class="ctab"><b>CTA</b> · Me segue pra acompanhar essa jornada de pertinho. 🤍</div></div></details>
+<details class="post" style="border-left-color:#7E94B0">
+<summary><span class="pd">Dia 2</span><span class="chip c-edu">Educação</span><span class="pf">Carrossel</span><span class="pt">O que é estética não invasiva</span></summary>
+<div class="pbody"><p class="obj"><b>Objetivo</b> · Definir o território da marca e reduzir o medo de procedimentos.</p><div class="kk">Capa</div><p class="cap">“Estética não invasiva: cuidar de você sem agulha e sem milagre”</p><div class="kk">Slides</div><ul class="mini"><li>Slide 1 (capa): Estética não invasiva: cuidar de você sem agulha e sem milagre.</li><li>Slide 2: O que é? São procedimentos que cuidam da sua aparência e do seu bem-estar sem cortar, sem injetar e sem agredir o corpo.</li><li>Slide 3: O que NÃO é? Não é preenchimento, não é injeção, não é promessa de transformação da noite pro dia.</li><li>Slide 4: Por que isso importa? Porque dá pra cuidar de você com segurança, respeitando o seu corpo e o seu tempo.</li><li>Slide 5: Aqui na Boas Cuida é assim: tudo com base científica, regulado pela Anvisa e explicado pra você decidir tranquila.</li><li>Slide 6 (CTA): Salve este post pra lembrar que existe um jeito leve e seguro de se cuidar.</li></ul><div class="ctab"><b>CTA</b> · Salve para lembrar e compartilhe com quem tem medo de procedimento. 🤍</div></div></details>
+<details class="post" style="border-left-color:#D9A23B">
+<summary><span class="pd">Dia 3</span><span class="chip c-conv">Conversão</span><span class="pf">Carrossel</span><span class="pt">Plano VIP: o clube de autocuidado</span></summary>
+<div class="pbody"><p class="obj"><b>Objetivo</b> · Apresentar o produto de recorrência de forma clara e desejável.</p><div class="kk">Capa</div><p class="cap">“Conheça o Plano VIP: seu clube de autocuidado”</p><div class="kk">Slides</div><ul class="mini"><li>Slide 1 (capa): Conheça o Plano VIP — o seu clube de autocuidado.</li><li>Slide 2: O que é? Um pacote de 6 créditos pra você usar como quiser nos nossos serviços.</li><li>Slide 3: Como funciona? Cada serviço vale 1 crédito. Você escolhe entre bronze e procedimentos, do seu jeito.</li><li>Slide 4: Validade de 6 meses — tempo de sobra pra encaixar o cuidado na sua rotina.</li><li>Slide 5: Investimento: R$550, que você pode parcelar no cartão ou pagar em 2x no Pix.</li><li>Slide 6: Por que vale? Porque cuidar de você deixa de ser evento e vira hábito — com economia e previsibilidade.</li><li>Slide 7 (CTA): Quer entender se o VIP combina com você? Chama na gente.</li></ul><div class="ctab"><b>CTA</b> · Chama no WhatsApp que a gente monta o seu cuidado. 🤍</div></div></details>
+<details class="post" style="border-left-color:#7E94B0">
+<summary><span class="pd">Dia 4</span><span class="chip c-edu">Educação</span><span class="pf">Carrossel</span><span class="pt">Bronze: mitos e verdades</span></summary>
+<div class="pbody"><p class="obj"><b>Objetivo</b> · Educar sobre o produto de entrada e reforçar segurança.</p><div class="kk">Capa</div><p class="cap">“Bronze: o que é mito e o que é verdade”</p><div class="kk">Slides</div><ul class="mini"><li>Slide 1 (capa): Bronze — o que é mito e o que é verdade?</li><li>Slide 2: MITO: "bronze é só pegar sol." Verdade: existe técnica, tempo certo e cuidado com a saúde da pele.</li><li>Slide 3: MITO: "quanto mais sol, melhor." Verdade: ultrapassar o limite da pele não acelera nada — só prejudica.</li><li>Slide 4: VERDADE: marquinha bonita é marquinha mantida. A manutenção é o segredo.</li><li>Slide 5: VERDADE: dá pra ter um bronze lindo cuidando da pele ao mesmo tempo.</li><li>Slide 6: E tem mais: aqui o bronze é só o começo do seu autocuidado.</li><li>Slide 7 (CTA): Salve essas dicas e me conta nos comentários qual mito você acreditava.</li></ul><div class="ctab"><b>CTA</b> · Salve essas dicas e compartilhe com a amiga que ama um bronze. ☀️</div></div></details>
+<details class="post" style="border-left-color:#9AAE8E">
+<summary><span class="pd">Dia 5</span><span class="chip c-prova">Prova Social</span><span class="pf">Post único</span><span class="pt">Depoimento de cliente do bronze</span></summary>
+<div class="pbody"><p class="obj"><b>Objetivo</b> · Reduzir o risco percebido e gerar desejo pela experiência.</p><div class="kk">Headline</div><p class="cap">"Nunca me senti tão à vontade pra cuidar de mim"</p><div class="kk">Texto</div><p>Tem cliente que chega tímida e sai se sentindo em casa. É exatamente isso que a gente quer: um lugar sem julgamento, onde você pode cuidar de você do seu jeito. [Inserir print ou fala real da cliente sobre a experiência do bronze.] Obrigada por confiar na Boas Cuida. 🤍</p><div class="ctab"><b>CTA</b> · Veja mais histórias no destaque "Resultados" — e venha viver a sua.</div></div></details>
+<details class="post" style="border-left-color:#C97B57">
+<summary><span class="pd">Dia 6</span><span class="chip c-con">Conexão</span><span class="pf">Reels</span><span class="pt">Bastidor: um dia na Boas Cuida</span></summary>
+<div class="pbody"><p class="obj"><b>Objetivo</b> · Humanizar a marca e mostrar o ambiente acolhedor.</p><div class="kk">Gancho</div><p class="cap">“Vem ver como é um dia aqui na Boas Cuida.”</p><div class="kk">Fala</div><ul class="mini"><li>Abertura (gancho): "Vem ver como é um dia aqui na Boas Cuida."</li><li>Sequência: mostre cenas curtas — preparo do ambiente, recepção da cliente, um momento de cuidado, a leveza do dia a dia.</li><li>Narração leve por cima: "Aqui cada detalhe é pensado pra você se sentir bem desde que chega."</li><li>Fechamento de clima: mostre um sorriso real, um detalhe acolhedor do espaço.</li></ul><div class="kk">Encerramento</div><p>"Cuidar de você é o que eu mais amo fazer."</p><div class="ctab"><b>CTA</b> · Compartilhe com uma amiga que merece esse cuidado. 🤍</div></div></details>
+<details class="post" style="border-left-color:#5E7355">
+<summary><span class="pd">Dia 7</span><span class="chip c-aut">Autoridade</span><span class="pf">Carrossel</span><span class="pt">Por que não trabalhamos com injeção</span></summary>
+<div class="pbody"><p class="obj"><b>Objetivo</b> · Construir confiança através do diferencial de segurança.</p><div class="kk">Capa</div><p class="cap">“Por que a Boas Cuida não trabalha com injeção”</p><div class="kk">Slides</div><ul class="mini"><li>Slide 1 (capa): Por que aqui a gente não trabalha com injeção?</li><li>Slide 2: Porque o nosso compromisso é com a saúde do seu corpo, não com atalhos.</li><li>Slide 3: Estética não invasiva significa cuidar de você sem agredir, sem cortar e sem injetar.</li><li>Slide 4: Todos os procedimentos são regulados pela Anvisa e explicados pra você entender o que está fazendo.</li><li>Slide 5: Resultado existe, sim — com segurança e respeitando o seu tempo.</li><li>Slide 6 (CTA): Ficou com dúvida sobre o que é seguro pra você? Manda mensagem.</li></ul><div class="ctab"><b>CTA</b> · Tire suas dúvidas no WhatsApp — a gente te explica tudo com calma.</div></div></details>
+<details class="post" style="border-left-color:#7E94B0">
+<summary><span class="pd">Dia 8</span><span class="chip c-edu">Educação</span><span class="pf">Carrossel</span><span class="pt">Limpeza de pele: para que serve</span></summary>
+<div class="pbody"><p class="obj"><b>Objetivo</b> · Apresentar o segundo produto de entrada e ampliar a percepção além do bronze.</p><div class="kk">Capa</div><p class="cap">“Limpeza de pele: o cuidado que sua pele pede (e você nem sabe)”</p><div class="kk">Slides</div><ul class="mini"><li>Slide 1 (capa): Limpeza de pele — o cuidado que sua pele pede e você nem sabe.</li><li>Slide 2: Pra que serve? Remove impurezas, desobstrui os poros e prepara a pele pra respirar melhor.</li><li>Slide 3: Benefícios: pele mais limpa, viço renovado e aquela sensação de autocuidado de verdade.</li><li>Slide 4: Com que frequência? Em média uma vez por mês — mas a gente avalia a sua pele.</li><li>Slide 5: É um momento seu: relaxar enquanto cuida da sua saúde e da sua autoestima.</li><li>Slide 6 (CTA): Salve pra não esquecer de incluir isso na sua rotina de cuidado.</li></ul><div class="ctab"><b>CTA</b> · Salve para depois e me chama pra agendar a sua. ✨</div></div></details>
+<details class="post" style="border-left-color:#C97B57">
+<summary><span class="pd">Dia 9</span><span class="chip c-con">Conexão</span><span class="pf">Post único</span><span class="pt">Autocuidado não é luxo, é rotina</span></summary>
+<div class="pbody"><p class="obj"><b>Objetivo</b> · Reforçar o território da marca e gerar identificação.</p><div class="kk">Headline</div><p class="cap">Autocuidado não é luxo. É rotina.</p><div class="kk">Texto</div><p>A gente cresceu achando que cuidar de si era vaidade ou coisa de quem tem tempo sobrando. Não é. Cuidar de você é o que te dá energia pra cuidar de tudo o mais. Não precisa ser caro, não precisa ser demorado, não precisa ser perfeito. Precisa ser seu. Aqui na Boas Cuida a gente acredita que toda mulher merece esse espaço — leve, seguro e sem julgamento.</p><div class="ctab"><b>CTA</b> · Marque aquela amiga que precisa ouvir isso hoje. 🤍</div></div></details>
+<details class="post" style="border-left-color:#9AAE8E">
+<summary><span class="pd">Dia 10</span><span class="chip c-prova">Prova Social</span><span class="pf">Carrossel</span><span class="pt">Resultado Fast Shape (com discrição)</span></summary>
+<div class="pbody"><p class="obj"><b>Objetivo</b> · Gerar interesse no produto premium com foco no bem-estar.</p><div class="kk">Capa</div><p class="cap">“Fast Shape: resultado real, do jeito seguro”</p><div class="kk">Slides</div><ul class="mini"><li>Slide 1 (capa): Fast Shape — resultado real, do jeito seguro.</li><li>Slide 2: O Fast Shape é o nosso tratamento mais completo, com resultado que você já percebe na primeira sessão.</li><li>Slide 3: [Inserir registro de resultado com discrição — foco na sensação de bem-estar, não em antes/depois chocante.]</li><li>Slide 4: Mais do que medidas, o que muda é como você se sente com o seu corpo.</li><li>Slide 5: Tudo não invasivo, seguro e com acompanhamento.</li><li>Slide 6 (CTA): Quer saber se o Fast Shape é pra você? Vamos conversar.</li></ul><div class="ctab"><b>CTA</b> · Saiba mais no WhatsApp — sem compromisso, só pra te explicar. 🤍</div></div></details>
+<details class="post" style="border-left-color:#7E94B0">
+<summary><span class="pd">Dia 11</span><span class="chip c-edu">Educação</span><span class="pf">Carrossel</span><span class="pt">FAQ: as 5 perguntas que mais recebemos</span></summary>
+<div class="pbody"><p class="obj"><b>Objetivo</b> · Quebrar as principais objeções de uma vez.</p><div class="kk">Capa</div><p class="cap">“As 5 perguntas que mais recebemos (respondidas)”</p><div class="kk">Slides</div><ul class="mini"><li>Slide 1 (capa): As 5 perguntas que mais recebemos — respondidas com sinceridade.</li><li>Slide 2: "Tem injeção?" Não. Aqui é tudo estética não invasiva.</li><li>Slide 3: "É seguro?" Sim. Procedimentos regulados pela Anvisa e com base científica.</li><li>Slide 4: "Dói?" Não. O foco é o seu bem-estar do começo ao fim.</li><li>Slide 5: "Quantas sessões preciso?" Depende de você — a gente avalia e te orienta com honestidade.</li><li>Slide 6: "Vocês fazem só bronze?" Não! Tem estética facial, corporal, Plano VIP e Fast Shape.</li><li>Slide 7 (CTA): Ficou com outra dúvida? Comenta aqui que a gente responde.</li></ul><div class="ctab"><b>CTA</b> · Comente a sua dúvida — a próxima resposta pode ser a sua. 💬</div></div></details>
+<details class="post" style="border-left-color:#D9A23B">
+<summary><span class="pd">Dia 12</span><span class="chip c-conv">Conversão</span><span class="pf">Carrossel</span><span class="pt">Plano VIP: como usar os créditos</span></summary>
+<div class="pbody"><p class="obj"><b>Objetivo</b> · Mostrar a flexibilidade do VIP para reduzir a objeção de uso.</p><div class="kk">Capa</div><p class="cap">“Plano VIP: você escolhe como cuidar de você”</p><div class="kk">Slides</div><ul class="mini"><li>Slide 1 (capa): Plano VIP — você escolhe como cuidar de você.</li><li>Slide 2: São 6 créditos. Cada serviço vale 1 crédito.</li><li>Slide 3: Quer usar tudo em bronze? Pode. Quer misturar bronze e procedimentos? Também pode.</li><li>Slide 4: Exemplo: 3 sessões de bronze + 2 limpezas de pele + 1 procedimento. Do seu jeito.</li><li>Slide 5: Validade de 6 meses, sem corre e sem pressão.</li><li>Slide 6: É o autocuidado encaixando na sua vida, não o contrário.</li><li>Slide 7 (CTA): Me chama que eu te ajudo a montar o seu VIP ideal.</li></ul><div class="ctab"><b>CTA</b> · Chama no WhatsApp pra montar o seu. 🤍</div></div></details>
+<details class="post" style="border-left-color:#C97B57">
+<summary><span class="pd">Dia 13</span><span class="chip c-con">Conexão</span><span class="pf">Reels</span><span class="pt">Bem-estar: cuidar do corpo é cuidar da mente</span></summary>
+<div class="pbody"><p class="obj"><b>Objetivo</b> · Ampliar o conceito de cuidado para além da estética.</p><div class="kk">Gancho</div><p class="cap">“Cuidar do corpo é também cuidar da sua cabeça.”</p><div class="kk">Fala</div><ul class="mini"><li>Abertura (gancho): "Cuidar do corpo é também cuidar da sua cabeça."</li><li>Desenvolvimento: explique de forma simples que momentos de cuidado reduzem o estresse, ajudam a baixar o cortisol e melhoram a forma como você se sente.</li><li>Conexão: "Quando você separa um tempo pra você, o seu corpo agradece — e a sua mente também."</li><li>Reforço de território: "Autocuidado não é frescura. É saúde."</li></ul><div class="kk">Encerramento</div><p>"Cortisol baixo, autoestima alta. É disso que a gente cuida aqui."</p><div class="ctab"><b>CTA</b> · Salve para lembrar de reservar um tempo pra você essa semana. 🤍</div></div></details>
+<details class="post" style="border-left-color:#5E7355">
+<summary><span class="pd">Dia 14</span><span class="chip c-aut">Autoridade</span><span class="pf">Carrossel</span><span class="pt">Anvisa e base científica</span></summary>
+<div class="pbody"><p class="obj"><b>Objetivo</b> · Reforçar a autoridade técnica e a segurança da marca.</p><div class="kk">Capa</div><p class="cap">“Por que tudo aqui tem embasamento e regulação”</p><div class="kk">Slides</div><ul class="mini"><li>Slide 1 (capa): Por que tudo aqui tem embasamento e regulação.</li><li>Slide 2: A gente não trabalha com achismo. Cada procedimento tem base científica.</li><li>Slide 3: Os produtos e equipamentos seguem a regulação da Anvisa.</li><li>Slide 4: Isso significa segurança pra você e tranquilidade pra gente.</li><li>Slide 5: Cuidar de verdade é cuidar com responsabilidade.</li><li>Slide 6 (CTA): Quer entender melhor algum procedimento? Manda mensagem.</li></ul><div class="ctab"><b>CTA</b> · Tire suas dúvidas no WhatsApp. A informação também é cuidado. 🤍</div></div></details>
+<details class="post" style="border-left-color:#9AAE8E">
+<summary><span class="pd">Dia 15</span><span class="chip c-prova">Prova Social</span><span class="pf">Post único</span><span class="pt">Depoimento Plano VIP</span></summary>
+<div class="pbody"><p class="obj"><b>Objetivo</b> · Provar o valor da recorrência com a fala de uma cliente.</p><div class="kk">Headline</div><p class="cap">"O VIP virou o meu momento só meu"</p><div class="kk">Texto</div><p>Mais do que créditos, o Plano VIP virou um compromisso de cuidar de mim. [Inserir print ou fala real de uma cliente VIP sobre como o plano se encaixou na rotina dela.] É exatamente isso que a gente quer: que cuidar de você deixe de ser exceção e vire hábito.</p><div class="ctab"><b>CTA</b> · Quer ter o seu momento também? Me chama no WhatsApp. 🤍</div></div></details>
+<details class="post" style="border-left-color:#7E94B0">
+<summary><span class="pd">Dia 16</span><span class="chip c-edu">Educação</span><span class="pf">Carrossel</span><span class="pt">Fast Shape: o que é e para quem é</span></summary>
+<div class="pbody"><p class="obj"><b>Objetivo</b> · Educar sobre o produto premium e qualificar o interesse.</p><div class="kk">Capa</div><p class="cap">“Fast Shape: o tratamento mais completo da Boas Cuida”</p><div class="kk">Slides</div><ul class="mini"><li>Slide 1 (capa): Fast Shape — o tratamento mais completo da Boas Cuida.</li><li>Slide 2: O que é? Um procedimento autoral, não invasivo, pensado pra entregar resultado real com segurança.</li><li>Slide 3: O diferencial: você já percebe diferença na primeira sessão.</li><li>Slide 4: Pra quem é? Pra você que quer cuidar do corpo sem recorrer a nada agressivo.</li><li>Slide 5: O que esperar? Acompanhamento, orientação e cuidado do começo ao fim.</li><li>Slide 6: É o autocuidado em sua versão mais completa.</li><li>Slide 7 (CTA): Quer saber se é indicado pra você? Vamos conversar.</li></ul><div class="ctab"><b>CTA</b> · Saiba mais no WhatsApp e agende sua avaliação. 🤍</div></div></details>
+<details class="post" style="border-left-color:#C97B57">
+<summary><span class="pd">Dia 17</span><span class="chip c-con">Conexão</span><span class="pf">Reels</span><span class="pt">Bastidor: preparo de um atendimento</span></summary>
+<div class="pbody"><p class="obj"><b>Objetivo</b> · Mostrar o cuidado e o capricho antes da cliente chegar.</p><div class="kk">Gancho</div><p class="cap">“O seu cuidado começa antes mesmo de você chegar.”</p><div class="kk">Fala</div><ul class="mini"><li>Abertura (gancho): "O seu cuidado começa antes mesmo de você chegar."</li><li>Sequência: mostre o preparo — higienização, organização do espaço, separação dos materiais, ambiente sendo deixado aconchegante.</li><li>Narração leve: "Cada detalhe é pensado pra você relaxar e confiar."</li><li>Reforço: "Porque cuidar bem é cuidar de tudo, inclusive do que você não vê."</li></ul><div class="kk">Encerramento</div><p>"Quando você chega, está tudo pronto pra ser só sobre você."</p><div class="ctab"><b>CTA</b> · Compartilhe com quem valoriza um atendimento caprichado. 🤍</div></div></details>
+<details class="post" style="border-left-color:#7E94B0">
+<summary><span class="pd">Dia 18</span><span class="chip c-edu">Educação</span><span class="pf">Carrossel</span><span class="pt">Bronze seguro: tempo e manutenção</span></summary>
+<div class="pbody"><p class="obj"><b>Objetivo</b> · Educar sobre o bronze e diferenciar pela segurança.</p><div class="kk">Capa</div><p class="cap">“Marquinha linda é marquinha cuidada”</p><div class="kk">Slides</div><ul class="mini"><li>Slide 1 (capa): Marquinha linda é marquinha cuidada.</li><li>Slide 2: O tempo de sol varia conforme a estação e o tom da sua pele — não tem fórmula única.</li><li>Slide 3: A gente nunca ultrapassa o limite seguro da sua pele. Saúde em primeiro lugar.</li><li>Slide 4: A segunda sessão costuma ser necessária pra marquinha pegar por igual.</li><li>Slide 5: O segredo de uma marquinha duradoura? Manutenção.</li><li>Slide 6: Bronze bonito e saudável andam juntos — é assim que a gente trabalha.</li><li>Slide 7 (CTA): Salve essas dicas e me chama pra agendar a sua sessão.</li></ul><div class="ctab"><b>CTA</b> · Salve as dicas e agende seu bronze no WhatsApp. ☀️</div></div></details>
+<details class="post" style="border-left-color:#D9A23B">
+<summary><span class="pd">Dia 19</span><span class="chip c-conv">Conversão</span><span class="pf">Carrossel</span><span class="pt">Plano VIP: vale a pena? (a conta)</span></summary>
+<div class="pbody"><p class="obj"><b>Objetivo</b> · Mostrar a vantagem econômica e quebrar a objeção de preço.</p><div class="kk">Capa</div><p class="cap">“Plano VIP vale a pena? Vamos fazer a conta”</p><div class="kk">Slides</div><ul class="mini"><li>Slide 1 (capa): Plano VIP vale a pena? Vamos fazer a conta juntas.</li><li>Slide 2: São 6 créditos por R$550 — dá pra usar em bronze e procedimentos.</li><li>Slide 3: Comprando avulso, cada serviço sai mais caro. No VIP, você economiza.</li><li>Slide 4: Some a economia + a flexibilidade + a validade de 6 meses.</li><li>Slide 5: E pode parcelar no cartão ou pagar em 2x no Pix.</li><li>Slide 6: No fim, cuidar de você cabe no seu mês — e ainda sobra tranquilidade.</li><li>Slide 7 (CTA): Quer que eu faça a conta pro seu caso? Me chama.</li></ul><div class="ctab"><b>CTA</b> · Chama no WhatsApp que eu monto a conta com você. 🤍</div></div></details>
+<details class="post" style="border-left-color:#9AAE8E">
+<summary><span class="pd">Dia 20</span><span class="chip c-prova">Prova Social</span><span class="pf">Post único</span><span class="pt">Antes e depois do bem-estar (discreto)</span></summary>
+<div class="pbody"><p class="obj"><b>Objetivo</b> · Provar transformação com foco em como a cliente se sente.</p><div class="kk">Headline</div><p class="cap">Não é só o corpo. É como você se sente.</p><div class="kk">Texto</div><p>A gente até mostra resultado, mas o que mais importa é o que não aparece na foto: a confiança que volta, o cuidado que vira hábito, a leveza de se olhar no espelho com carinho. [Inserir registro discreto de resultado ou depoimento focado no bem-estar.] Esse é o tipo de transformação que a Boas Cuida persegue.</p><div class="ctab"><b>CTA</b> · Veja mais no destaque "Resultados" e venha viver a sua. 🤍</div></div></details>
+<details class="post" style="border-left-color:#C97B57">
+<summary><span class="pd">Dia 21</span><span class="chip c-con">Conexão</span><span class="pf">Reels</span><span class="pt">Por que "Boas Cuida"</span></summary>
+<div class="pbody"><p class="obj"><b>Objetivo</b> · Reforçar a marca e o propósito por trás do nome.</p><div class="kk">Gancho</div><p class="cap">“O meu sobrenome virou o meu propósito.”</p><div class="kk">Fala</div><ul class="mini"><li>Abertura (gancho): "O meu sobrenome virou o meu propósito."</li><li>Desenvolvimento: conte que Boas é o sobrenome da família e que, com o tempo, virou também o jeito de trabalhar — boas mãos, bom cuidado, bem-estar.</li><li>Virada: "Boas Bronze me trouxe até aqui. Boas Cuida é onde eu quero chegar com você."</li><li>Significado: "Cuidar deixou de ser serviço e virou missão."</li></ul><div class="kk">Encerramento</div><p>"Boas Cuida é isso: cuidar de você por inteiro."</p><div class="ctab"><b>CTA</b> · Me segue e faça parte dessa história. 🤍</div></div></details>
+<details class="post" style="border-left-color:#7E94B0">
+<summary><span class="pd">Dia 22</span><span class="chip c-edu">Educação</span><span class="pf">Carrossel</span><span class="pt">Estética não invasiva x tradicional</span></summary>
+<div class="pbody"><p class="obj"><b>Objetivo</b> · Posicionar a marca contra a categoria tradicional.</p><div class="kk">Capa</div><p class="cap">“Existe outro caminho pra se cuidar”</p><div class="kk">Slides</div><ul class="mini"><li>Slide 1 (capa): Existe outro caminho pra se cuidar.</li><li>Slide 2: A estética tradicional costuma focar em procedimentos agressivos e transformação a qualquer custo.</li><li>Slide 3: A estética não invasiva cuida de você respeitando o seu corpo e o seu tempo.</li><li>Slide 4: Sem agulha, sem corte, sem promessa de milagre.</li><li>Slide 5: Com segurança, base científica e acolhimento.</li><li>Slide 6: Você não precisa se machucar pra se cuidar.</li><li>Slide 7 (CTA): Salve este post pra lembrar que existe um jeito mais leve.</li></ul><div class="ctab"><b>CTA</b> · Salve para refletir e compartilhe com quem precisa repensar isso. 🤍</div></div></details>
+<details class="post" style="border-left-color:#5E7355">
+<summary><span class="pd">Dia 23</span><span class="chip c-aut">Autoridade</span><span class="pf">Carrossel</span><span class="pt">10 anos de profissão: o que aprendi</span></summary>
+<div class="pbody"><p class="obj"><b>Objetivo</b> · Consolidar a autoridade da fundadora.</p><div class="kk">Capa</div><p class="cap">“10 anos cuidando de mulheres: o que eu aprendi”</p><div class="kk">Slides</div><ul class="mini"><li>Slide 1 (capa): 10 anos cuidando de mulheres — o que eu aprendi.</li><li>Slide 2: Aprendi que segurança vale mais do que qualquer promessa rápida.</li><li>Slide 3: Aprendi que toda mulher quer se sentir acolhida, não julgada.</li><li>Slide 4: Aprendi que resultado de verdade vem com consistência e cuidado.</li><li>Slide 5: Aprendi que autocuidado transforma a vida de quem se permite.</li><li>Slide 6: E é por isso que a Boas Cuida existe do jeito que é.</li><li>Slide 7 (CTA): Quer cuidar de você com quem entende do assunto? Me chama.</li></ul><div class="ctab"><b>CTA</b> · Tire suas dúvidas no WhatsApp. 10 anos à sua disposição. 🤍</div></div></details>
+<details class="post" style="border-left-color:#9AAE8E">
+<summary><span class="pd">Dia 24</span><span class="chip c-prova">Prova Social</span><span class="pf">Post único</span><span class="pt">Depoimento Fast Shape</span></summary>
+<div class="pbody"><p class="obj"><b>Objetivo</b> · Reduzir o risco percebido do produto premium.</p><div class="kk">Headline</div><p class="cap">"Senti diferença já na primeira sessão"</p><div class="kk">Texto</div><p>O Fast Shape impressiona justamente porque o resultado aparece cedo — mas sempre com segurança. [Inserir print ou fala real de uma cliente sobre a experiência e o resultado do Fast Shape.] Mais do que medidas, o que a gente entrega é confiança no próprio corpo.</p><div class="ctab"><b>CTA</b> · Saiba mais no WhatsApp e agende sua avaliação. 🤍</div></div></details>
+<details class="post" style="border-left-color:#7E94B0">
+<summary><span class="pd">Dia 25</span><span class="chip c-edu">Educação</span><span class="pf">Carrossel</span><span class="pt">Limpeza de pele: cuidados em casa</span></summary>
+<div class="pbody"><p class="obj"><b>Objetivo</b> · Entregar valor prático e reforçar autoridade no cuidado.</p><div class="kk">Capa</div><p class="cap">“Seu cuidado continua em casa”</p><div class="kk">Slides</div><ul class="mini"><li>Slide 1 (capa): Seu cuidado não acaba quando você sai daqui.</li><li>Slide 2: Limpe o rosto de manhã e à noite — pele limpa é base de tudo.</li><li>Slide 3: Hidrate sempre, mesmo se a sua pele for oleosa.</li><li>Slide 4: Protetor solar todos os dias, faça sol ou não.</li><li>Slide 5: Evite espremer e cutucar — isso machuca e marca a pele.</li><li>Slide 6: A limpeza de pele profissional potencializa todo esse cuidado caseiro.</li><li>Slide 7 (CTA): Salve essas dicas e me chama pra agendar sua limpeza.</li></ul><div class="ctab"><b>CTA</b> · Salve essas dicas e agende sua limpeza de pele. ✨</div></div></details>
+<details class="post" style="border-left-color:#C97B57">
+<summary><span class="pd">Dia 26</span><span class="chip c-con">Conexão</span><span class="pf">Reels</span><span class="pt">Caixinha de dúvidas (interação)</span></summary>
+<div class="pbody"><p class="obj"><b>Objetivo</b> · Gerar engajamento e abrir espaço para conversa.</p><div class="kk">Gancho</div><p class="cap">“Pode perguntar: hoje eu respondo as suas dúvidas.”</p><div class="kk">Fala</div><ul class="mini"><li>Abertura (gancho): "Pode perguntar — hoje eu respondo as suas dúvidas sobre autocuidado e estética não invasiva."</li><li>Desenvolvimento: convide a seguidora a mandar dúvidas sobre bronze, limpeza de pele, Plano VIP, Fast Shape ou segurança.</li><li>Reforço: "Sem dúvida boba. Se você tem essa pergunta, outras mulheres têm também."</li><li>Direcionamento: avise que vai responder as principais nos stories e nos próximos posts.</li></ul><div class="kk">Encerramento</div><p>"Cuidar bem também é tirar dúvidas com sinceridade."</p><div class="ctab"><b>CTA</b> · Manda sua pergunta na caixinha ou aqui nos comentários. 💬</div></div></details>
+<details class="post" style="border-left-color:#D9A23B">
+<summary><span class="pd">Dia 27</span><span class="chip c-conv">Conversão</span><span class="pf">Carrossel</span><span class="pt">Fast Shape: agende sua avaliação</span></summary>
+<div class="pbody"><p class="obj"><b>Objetivo</b> · Converter o interesse acumulado em conversa no WhatsApp.</p><div class="kk">Capa</div><p class="cap">“Dê o primeiro passo com segurança”</p><div class="kk">Slides</div><ul class="mini"><li>Slide 1 (capa): Dê o primeiro passo com segurança: avaliação Fast Shape.</li><li>Slide 2: Antes de qualquer coisa, a gente conversa e entende o seu objetivo.</li><li>Slide 3: A avaliação é o momento de tirar dúvidas e ver se o Fast Shape é pra você.</li><li>Slide 4: Sem pressão, sem empurrar nada. Só cuidado e clareza.</li><li>Slide 5: Se fizer sentido, a gente monta o seu plano com segurança.</li><li>Slide 6 (CTA): Bora dar esse primeiro passo? Me chama no WhatsApp.</li></ul><div class="ctab"><b>CTA</b> · Chama no WhatsApp pra agendar sua avaliação. 🤍</div></div></details>
+<details class="post" style="border-left-color:#7E94B0">
+<summary><span class="pd">Dia 28</span><span class="chip c-edu">Educação</span><span class="pf">Carrossel</span><span class="pt">Autocuidado: por onde começar</span></summary>
+<div class="pbody"><p class="obj"><b>Objetivo</b> · Acolher quem está começando e reduzir a barreira de entrada.</p><div class="kk">Capa</div><p class="cap">“Autocuidado: por onde começar (sem complicar)”</p><div class="kk">Slides</div><ul class="mini"><li>Slide 1 (capa): Autocuidado — por onde começar sem complicar.</li><li>Slide 2: Comece pequeno: um momento na semana só pra você já é começo.</li><li>Slide 3: Cuide da pele: limpeza e hidratação fazem diferença real.</li><li>Slide 4: Respeite o seu tempo: não precisa fazer tudo de uma vez.</li><li>Slide 5: Procure quem te acolhe: cuidar de você não precisa ser intimidante.</li><li>Slide 6: O primeiro passo é decidir que você merece esse cuidado.</li><li>Slide 7 (CTA): Salve este post e comece o seu autocuidado hoje.</li></ul><div class="ctab"><b>CTA</b> · Salve e comece hoje. Se precisar de ajuda, é só me chamar. 🤍</div></div></details>
+<details class="post" style="border-left-color:#9AAE8E">
+<summary><span class="pd">Dia 29</span><span class="chip c-prova">Prova Social</span><span class="pf">Post único</span><span class="pt">Mural de clientes / comunidade</span></summary>
+<div class="pbody"><p class="obj"><b>Objetivo</b> · Mostrar pertencimento e fortalecer a comunidade da marca.</p><div class="kk">Headline</div><p class="cap">Faça parte de quem se cuida com leveza</p><div class="kk">Texto</div><p>Cada cliente que passa por aqui faz parte de algo maior: uma comunidade de mulheres que decidiram se cuidar sem culpa, sem pressão e sem julgamento. [Inserir mosaico de clientes, reposts ou mensagens recebidas.] Obrigada a cada uma que confia na Boas Cuida. Vocês são o coração dessa marca. 🤍</p><div class="ctab"><b>CTA</b> · Veja os destaques e venha fazer parte dessa comunidade.</div></div></details>
+<details class="post" style="border-left-color:#D9A23B">
+<summary><span class="pd">Dia 30</span><span class="chip c-conv">Conversão</span><span class="pf">Reels</span><span class="pt">Plano VIP: convite final do mês</span></summary>
+<div class="pbody"><p class="obj"><b>Objetivo</b> · Fechar o ciclo do mês vendendo recorrência.</p><div class="kk">Gancho</div><p class="cap">“Que tal começar o seu autocuidado agora?”</p><div class="kk">Fala</div><ul class="mini"><li>Abertura (gancho): "Que tal começar o seu autocuidado agora, sem deixar pra segunda-feira que nunca chega?"</li><li>Desenvolvimento: relembre rapidamente o que é o Plano VIP — 6 créditos, flexível, validade de 6 meses, do jeito da cliente.</li><li>Reforço de valor: "É a forma mais leve de transformar cuidado em hábito."</li><li>Convite: "Se você acompanhou a gente esse mês, esse é o seu sinal."</li></ul><div class="kk">Encerramento</div><p>"Cuidar de você pode começar hoje."</p><div class="ctab"><b>CTA</b> · Chama no WhatsApp e vamos montar o seu Plano VIP. 🤍</div></div></details>
+      <button class="mod-collapse" onclick="collapseMod(this)">Ocultar detalhes ▲</button>
+    </div>
+  </div>
+</div>
+<div class="mod" id="site" data-mod>
+  <button class="mod-head" aria-expanded="false" onclick="toggleMod(this)">
+    <span class="mod-num">07</span>
+    <span class="mod-info"><span class="mod-name">Site / Link da Bio</span><span class="mod-res">Estrutura e textos do site institucional.</span></span>
+    <span class="mod-toggle"><span class="tlabel">Ver detalhes</span><span class="tarrow">▼</span></span>
+  </button>
+  <div class="mod-panel">
+    <div class="mod-inner">
+      <p class="lead">Site institucional mobile first, pronto para o link da bio.</p>
+<h3>Estrutura (ordem das seções)</h3>
+<ul class="b"><li>Hero — headline + WhatsApp</li><li>Sobre a Boas (Keitlin)</li><li>Autocuidado sem invasão</li><li>Serviços (entrada / recorrência / premium)</li><li>Plano VIP</li><li>Fast Shape</li><li>Depoimentos</li><li>Dúvidas frequentes</li><li>Contato</li><li>Rodapé</li></ul>
+<p>O site é entregue como peça à parte para ser publicada como link da bio. Aqui fica documentada toda a sua estrutura e textos.</p>
+      <button class="mod-collapse" onclick="collapseMod(this)">Ocultar detalhes ▲</button>
+    </div>
+  </div>
+</div>
+<div class="mod" id="whatsapp" data-mod>
+  <button class="mod-head" aria-expanded="false" onclick="toggleMod(this)">
+    <span class="mod-num">08</span>
+    <span class="mod-info"><span class="mod-name">WhatsApp Comercial</span><span class="mod-res">Jornada, mensagens, objeções, funil e checklist de atendimento.</span></span>
+    <span class="mod-toggle"><span class="tlabel">Ver detalhes</span><span class="tarrow">▼</span></span>
+  </button>
+  <div class="mod-panel">
+    <div class="mod-inner">
+      <div class="kk2">Fluxo de atendimento (10 mensagens)</div><div class="msg"><div class="mt">1. Primeira mensagem (quando a cliente chama)</div><div class="bb">Oi! 🤍 Que bom te ver por aqui. Eu sou a Keitlin, da Boas Cuida. Como posso te ajudar a cuidar de você hoje?</div><div class="mn">Use sempre que alguém inicia a conversa. Calorosa, rápida e já se apresenta.</div></div>
+<div class="msg"><div class="mt">2. Boas-vindas (quem veio do Instagram/site)</div><div class="bb">Oi! 🤍 Vi que você veio do nosso Instagram, seja muito bem-vinda à Boas Cuida! Aqui a gente cuida de você com estética não invasiva, segura e sem julgamento. Me conta: o que te trouxe até aqui?</div><div class="mn">Para quem chega pelo link da bio ou menciona um post. Reforça o território.</div></div>
+<div class="msg"><div class="mt">3. Descoberta da necessidade</div><div class="bb">Pra eu te indicar o melhor cuidado, me conta rapidinho: você está buscando algo mais pro corpo, pra pele ou pro bem-estar no geral? E é a primeira vez que vai fazer um procedimento estético? 🤍</div><div class="mn">Nunca ofereça nada antes de entender. Duas perguntas no máximo, leves.</div></div>
+<div class="msg"><div class="mt">4. Direcionamento para o serviço</div><div class="bb">Pelo que você me contou, o que mais combina com o seu momento é [SERVIÇO]. Ele é [benefício em 1 frase] e é totalmente não invasivo. Quer que eu te explique como funciona?</div><div class="mn">Conecte a resposta da cliente a UM serviço. Não jogue o cardápio inteiro.</div></div>
+<div class="msg"><div class="mt">5. Convite para agendamento</div><div class="bb">Que tal a gente já deixar um horário reservado pra você? 🤍 Tenho disponibilidade [opção 1] e [opção 2]. Qual fica melhor pra você?</div><div class="mn">Ofereça 2 opções de horário — decidir entre duas é mais fácil que escolher do zero.</div></div>
+<div class="msg"><div class="mt">6. Confirmação de agendamento</div><div class="bb">Prontinho! ✨ Seu horário está reservado para [DIA] às [HORA]. O endereço é Rua Modestino Gonçalves, 251 — Nova Vista. Qualquer imprevisto é só me avisar. Já tô te esperando pra cuidar de você! 🤍</div><div class="mn">Confirme dia, hora e endereço numa única mensagem clara.</div></div>
+<div class="msg"><div class="mt">7. Pós-atendimento (no mesmo dia ou no dia seguinte)</div><div class="bb">Oi! 🤍 Foi um prazer te receber hoje. Como você está se sentindo? Qualquer dúvida sobre os cuidados em casa, pode me chamar à vontade.</div><div class="mn">Mostra cuidado além da sala. Abre espaço para depoimento e retorno.</div></div>
+<div class="msg"><div class="mt">8. Apresentação do Plano VIP</div><div class="bb">Já que você gostou da experiência, deixa eu te contar uma coisa que vai facilitar a sua vida 🤍 O Plano VIP é o nosso clube de autocuidado: 6 créditos por R$550 pra usar como quiser entre bronze e procedimentos, com 6 meses de validade. Sai mais em conta que avulso e ainda dá pra parcelar. Quer que eu te explique como ficaria pro seu caso?</div><div class="mn">Só depois de uma boa experiência. Foco em economia e flexibilidade.</div></div>
+<div class="msg"><div class="mt">9. Apresentação do Fast Shape</div><div class="bb">Se você quiser dar um passo a mais no seu cuidado, tem o Fast Shape — nosso tratamento mais completo, não invasivo, com resultado que já aparece na primeira sessão. O ideal é a gente começar por uma avaliação, sem compromisso, pra eu entender o seu objetivo. Quer agendar essa conversa? 🤍</div><div class="mn">Para quem já confia na marca. Sempre via avaliação, nunca empurrado.</div></div>
+<div class="msg"><div class="mt">10. Pedido de depoimento</div><div class="bb">Fico muito feliz que você tenha gostado! 🤍 Posso te pedir um favorzinho? Se puder mandar em uma frase o que achou da experiência, isso ajuda outras mulheres a se sentirem seguras pra se cuidar também. Pode ser por aqui mesmo!</div><div class="mn">Peça logo após um elogio espontâneo. Explique o porquê do pedido.</div></div><div class="kk2">Objeções</div><div class="objc"><div class="oq">“É seguro?”</div><div class="bb">Totalmente. 🤍 Aqui é tudo estética não invasiva, com procedimentos regulados pela Anvisa e feitos por quem tem 10 anos de profissão. Segurança é a nossa prioridade número um.</div></div>
+<div class="objc"><div class="oq">“Tem injeção?”</div><div class="bb">Não! Aqui a gente não trabalha com agulha, corte nem injeção. Cuidamos de você de forma não invasiva, respeitando o seu corpo.</div></div>
+<div class="objc"><div class="oq">“Dói?”</div><div class="bb">Não. O foco é o seu bem-estar do começo ao fim. Nossos procedimentos são pensados pra serem confortáveis e relaxantes.</div></div>
+<div class="objc"><div class="oq">“Funciona mesmo?”</div><div class="bb">Funciona, sim — e sem prometer milagre. A gente é honesta sobre o que cada cuidado entrega. No Fast Shape, por exemplo, você já costuma perceber diferença na primeira sessão.</div></div>
+<div class="objc"><div class="oq">“Quanto custa?”</div><div class="bb">Depende do que faz mais sentido pra você. Me conta o que você está buscando que eu te passo o valor certinho e ainda vejo a melhor forma de encaixar no seu bolso. 🤍</div></div>
+<div class="objc"><div class="oq">“Quantas sessões preciso?”</div><div class="bb">Depende do seu objetivo e da sua pele — por isso a gente começa com uma avaliação. Assim eu te oriento com sinceridade, sem te prender a pacote que você não precisa.</div></div>
+<div class="objc"><div class="oq">“Nunca fiz estética”</div><div class="bb">Que delícia ser o seu primeiro cuidado então! 🤍 Aqui é o lugar perfeito pra começar: tranquilo, acolhedor e sem julgamento. Eu te explico cada passo com calma.</div></div>
+<div class="objc"><div class="oq">“Tenho medo”</div><div class="bb">Eu entendo, e fico feliz que você tenha me contado. 🤍 Aqui nada é invasivo e eu explico tudo antes. Você decide cada passo, no seu tempo. Pode confiar que vai se sentir segura.</div></div>
+<div class="objc"><div class="oq">“Não tenho tempo”</div><div class="bb">Eu te entendo demais! Por isso o cuidado aqui é pensado pra caber na sua rotina. A gente acha um horário que funcione pra você — cuidar de você merece esse tempinho. 🤍</div></div>
+<div class="objc"><div class="oq">“Vou pensar”</div><div class="bb">Claro, fica à vontade! 🤍 Vou deixar registrado aqui e qualquer dúvida que surgir é só me chamar. Quando quiser dar o primeiro passo, eu tô por aqui pra te receber.</div></div><div class="kk2">Respostas rápidas</div><details class="acc"><summary>Horários<span class="ic">+</span></summary><div class="bb">A gente atende com hora marcada pra te dar toda a atenção. 🤍 Me diz os dias que são melhores pra você que eu te passo os horários disponíveis.</div></details>
+<details class="acc"><summary>Endereço<span class="ic">+</span></summary><div class="bb">Estamos na Rua Modestino Gonçalves, 251 — Nova Vista, Belo Horizonte/MG (CEP 31070-100). Quando vier, qualquer dúvida pra chegar é só me chamar!</div></details>
+<details class="acc"><summary>Formas de pagamento<span class="ic">+</span></summary><div class="bb">Você pode pagar no cartão (com opção de parcelar) ou no Pix. No Plano VIP, dá pra parcelar no cartão ou pagar em 2x no Pix. 🤍</div></details>
+<details class="acc"><summary>Plano VIP<span class="ic">+</span></summary><div class="bb">O Plano VIP é o nosso clube de autocuidado: 6 créditos por R$550, validade de 6 meses, pra usar como quiser entre bronze e procedimentos. Cada serviço vale 1 crédito. Quer que eu monte um exemplo pro seu caso?</div></details>
+<details class="acc"><summary>Fast Shape<span class="ic">+</span></summary><div class="bb">O Fast Shape é o nosso tratamento mais completo, não invasivo, com resultado já na primeira sessão. Começamos com uma avaliação sem compromisso pra entender o seu objetivo. Quer agendar?</div></details>
+<details class="acc"><summary>Bronze<span class="ic">+</span></summary><div class="bb">Nosso bronze é seguro, bonito e duradouro, sempre respeitando o limite da sua pele. 🤍 A marquinha fica linda e a manutenção mantém ela perfeita. Quer agendar a sua sessão?</div></details>
+<details class="acc"><summary>Limpeza de pele<span class="ic">+</span></summary><div class="bb">A limpeza de pele remove impurezas, renova o viço e é aquele momento de autocuidado pra sua pele respirar. Em média uma vez por mês, mas a gente avalia a sua. Quer agendar?</div></details>
+<details class="acc"><summary>Dúvidas frequentes<span class="ic">+</span></summary><div class="bb">Pode perguntar o que quiser! 🤍 As dúvidas mais comuns são sobre segurança, se tem injeção (não tem!), se dói (não dói) e quantas sessões. Me diz a sua que eu respondo com sinceridade.</div></details><div class="kk2">Funil comercial</div><div class="fun"><div class="fh2">Produtos de entrada — Bronze e Limpeza de Pele</div><p><b>QUANDO</b> · logo no primeiro contato, para quem ainda não conhece a marca.</p><p><b>COMO</b> · como porta de entrada de baixo risco — 'que tal começar conhecendo a gente com [serviço]?'. Foco na experiência, não no preço.</p><p class="nbad"><b>COMO NÃO</b> · não empilhe vários serviços de uma vez nem pressione. Entrada tem que ser leve.</p></div><div class="fun"><div class="fh2">Produto de recorrência — Plano VIP</div><p><b>QUANDO</b> · depois da primeira experiência boa, no pós-atendimento.</p><p><b>COMO</b> · como facilitador da vida e economia — 'já que você gostou, o VIP deixa o cuidado mais em conta e mais prático'.</p><p class="nbad"><b>COMO NÃO</b> · nunca antes da cliente experimentar. Oferecer VIP pra quem nunca veio gera desconfiança.</p></div><div class="fun"><div class="fh2">Produto premium — Fast Shape</div><p><b>QUANDO</b> · para clientes que já confiam na marca e demonstram interesse em resultado corporal.</p><p><b>COMO</b> · sempre via avaliação gratuita e sem compromisso. Foco no cuidado, não na venda.</p><p class="nbad"><b>COMO NÃO</b> · não ofereça como primeira opção a quem chegou agora, nem com promessa de milagre ou pressão.</p></div><div class="kk2">Pós-atendimento</div><div class="msg"><div class="mt">Agradecimento</div><div class="bb">Oi! 🤍 Foi um prazer cuidar de você hoje. Espero que tenha se sentido tão bem quanto a gente gostou de te receber!</div></div>
+<div class="msg"><div class="mt">Solicitação de avaliação</div><div class="bb">Se puder, deixa uma avaliação pra gente? ⭐ Leva 1 minutinho e ajuda demais a Boas Cuida a continuar crescendo. Qualquer coisa, tô por aqui!</div></div>
+<div class="msg"><div class="mt">Solicitação de depoimento</div><div class="bb">Posso te pedir um favorzinho? 🤍 Me conta em uma frase o que você achou da experiência — isso ajuda outras mulheres a confiarem e se cuidarem também.</div></div>
+<div class="msg"><div class="mt">Convite para retorno</div><div class="bb">Passando pra lembrar que tá quase na hora da sua manutenção 🤍 Quer que eu já reserve um horário pra manter o seu cuidado em dia?</div></div>
+<div class="msg"><div class="mt">Convite para Plano VIP</div><div class="bb">Já que você tem vindo com frequência, o Plano VIP ia te economizar bastante 🤍 São 6 créditos por R$550, pra usar como quiser. Quer que eu te explique como ficaria?</div></div><div class="kk2">Checklist diário</div><ul class="check"><li>Responder toda mensagem o quanto antes — agilidade é acolhimento.</li><li>Sempre abrir com calor e se apresentar quando for o primeiro contato.</li><li>Entender a necessidade antes de oferecer qualquer serviço.</li><li>Direcionar para UM serviço por vez, conectado ao que a cliente disse.</li><li>Oferecer sempre 2 opções de horário para facilitar a decisão.</li><li>Confirmar agendamento com dia, hora e endereço numa mensagem só.</li><li>Nunca prometer milagre nem pressionar. Honestidade vende mais.</li><li>Fazer o pós-atendimento — perguntar como a cliente está.</li><li>Pedir depoimento sempre que receber um elogio espontâneo.</li><li>Só oferecer Plano VIP depois de uma boa experiência.</li><li>Só oferecer Fast Shape via avaliação, para quem já confia.</li><li>Manter o tom da marca: caloroso, próximo, sem julgamento e com 🤍.</li></ul>
+      <button class="mod-collapse" onclick="collapseMod(this)">Ocultar detalhes ▲</button>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="extra">
+<div class="seclabel">O caminho daqui</div>
+<h2>Próximos passos</h2>
+<div class="passo"><span class="pn">Passo 01</span><span>Receber os materiais pendentes da cliente (logo em alta + banco de imagens e vídeos).</span></div>
+<div class="passo"><span class="pn">Passo 02</span><span>Produzir os posts finais e ativos visuais.</span></div>
+<div class="passo"><span class="pn">Passo 03</span><span>Finalizar o site definitivo.</span></div>
+<div class="passo"><span class="pn">Passo 04</span><span>Publicar os materiais.</span></div>
+<div class="passo"><span class="pn">Passo 05</span><span>Reunião de apresentação: explicar a estratégia, demonstrar o uso dos ativos e tirar dúvidas.</span></div>
+<div class="supbox"><h3>Suporte pós-entrega</h3>
+<p style="color:#EFEAE0;font-size:14px;">Acompanhamento 15 dias após a implementação para avaliar dificuldades, validar o uso dos materiais, coletar feedbacks e garantir o uso correto da estrutura.</p></div>
+<div class="seclabel" style="margin-top:24px">Pendências para conclusão final</div>
+<p style="font-size:14.5px">O projeto está <b>estrategicamente concluído</b>. Para a aplicação visual final dependemos de: <b>(1)</b> logo oficial em alta (SVG, PNG transparente, PDF vetorial); <b>(2)</b> banco de imagens e vídeos (fotos profissionais, do espaço, dos procedimentos, da Keitlin; vídeos de atendimento e bastidores; resultados autorizados).</p>
+<div class="cklist">
+<div class="ckcol imediato"><div class="ckh">Imediato</div><ul><li>Aplicar a bio e o nome de exibição</li><li>Configurar WhatsApp e link da bio</li><li>Criar os 9 destaques na ordem</li><li>Adotar paleta e fontes</li><li>Começar a publicar pelo calendário</li><li>Usar o playbook de WhatsApp</li></ul></div>
+<div class="ckcol d30"><div class="ckh">30 dias</div><ul><li>Publicar os 30 conteúdos</li><li>Capas de destaques e templates</li><li>Refazer fotos no novo estilo</li><li>Publicar o site / link da bio</li><li>Preencher os 9 destaques</li></ul></div>
+<div class="ckcol d90"><div class="ckh">90 dias</div><ul><li>Consolidar a transição Bronze → Cuida</li><li>Banco de conteúdo por pilar</li><li>Revisar métricas e ajustar</li><li>Padronizar o atendimento</li></ul></div>
+</div>
+</div>
+
 <div class="foot"><b>Boas Cuida</b> · Plano Estratégico Digital · YM Marketing &amp; Negócios · 2026</div>
-<nav class="tabnav">
-<a href="#home">Início</a><a href="#modulos">Módulos</a><a href="#checklist">Checklist</a><a href="#pendencias">Pendências</a>
-</nav>
+
+<script>
+function openMod(mod){
+  mod.classList.add('open');
+  var h=mod.querySelector('.mod-head'); h.setAttribute('aria-expanded','true');
+  h.querySelector('.tlabel').textContent='Ocultar detalhes';
+}
+function closeMod(mod){
+  mod.classList.remove('open');
+  var h=mod.querySelector('.mod-head'); h.setAttribute('aria-expanded','false');
+  h.querySelector('.tlabel').textContent='Ver detalhes';
+}
+function toggleMod(btn){
+  var mod=btn.closest('[data-mod]');
+  if(mod.classList.contains('open')){ closeMod(mod); }
+  else{
+    openMod(mod);
+    // scroll automático suave para o topo do módulo aberto
+    setTimeout(function(){
+      var y=mod.getBoundingClientRect().top+window.scrollY-64;
+      window.scrollTo({top:y,behavior:'smooth'});
+    },120);
+  }
+}
+function collapseMod(btn){
+  var mod=btn.closest('[data-mod]');
+  closeMod(mod);
+  var y=mod.getBoundingClientRect().top+window.scrollY-64;
+  window.scrollTo({top:y,behavior:'smooth'});
+}
+function expandAll(){document.querySelectorAll('[data-mod]').forEach(openMod);}
+function collapseAll(){document.querySelectorAll('[data-mod]').forEach(closeMod);}
+</script>
 </body></html>
